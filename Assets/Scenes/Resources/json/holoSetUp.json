@@ -1,0 +1,39 @@
+{
+  "categories": [
+    {
+      "Name": "Select a category",
+      "Index": 0
+    },
+    {
+      "Name": "Lagging",
+      "Index": 1
+    },
+    {
+      "Name": "Safety",
+      "Index": 2
+    }
+  ],
+  "holograms": [
+    {
+      "Name": "Select a hologram",
+      "Index": 0,
+      "ResourcePath": "",
+      "RuntimeObject": "",
+      "WayPointObject": ""
+    },
+    {
+      "Name": "BoundingBox",
+      "Index": 1,
+      "ResourcePath": "ProcessPrefabs/BoundingBox",
+      "RuntimeObject": "Cube",
+      "WayPointObject": "Cube"
+    },
+    {
+      "Name": "Point",
+      "Index": 2,
+      "ResourcePath": "ProcessPrefabs/PointObject",
+      "RuntimeObject": "Sphere",
+      "WayPointObject": "Sphere"
+    }
+  ]
+} 

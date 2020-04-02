@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: anchordata
+  m_Script: "{\r\n  \"anchoredObjects\": [\r\n    {\r\n      \"Children\": [\r\n        {\r\n
+    \         \"Children\": [],\r\n          \"Name\": \"Cube\",\r\n          \"Description\":
+    \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\": {\r\n            \"x\":
+    -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\": 7.39363\r\n
+    \         },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\": 0.0,\r\n
+    \         \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n          \"ToolTipText\":
+    \"\",\r\n          \"Scale\": {\r\n            \"x\": 0.217587888,\r\n            \"y\":
+    0.217587739,\r\n            \"z\": 0.217587888\r\n          }\r\n        }\r\n
+    \     ],\r\n      \"Name\": \"lagging_5\",\r\n      \"Description\": \"\",\r\n
+    \     \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/Lagging.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"Last box for today.\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n        \"y\":
+    1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Cube\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.0818892345,\r\n            \"y\": 0.08188918,\r\n            \"z\": 0.0818892345\r\n
+    \         }\r\n        }\r\n      ],\r\n      \"Name\": \"lagging_2\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/Lagging.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"1. Rear Adjustor\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n        \"y\":
+    1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Sphere\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.03,\r\n            \"y\": 0.03,\r\n            \"z\": 0.03\r\n          }\r\n
+    \       }\r\n      ],\r\n      \"Name\": \"Point_3\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/PointObject.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"ALIENWARE PSU\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n        \"y\":
+    1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Cube\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.0818892345,\r\n            \"y\": 0.08188918,\r\n            \"z\": 0.0818892345\r\n
+    \         }\r\n        }\r\n      ],\r\n      \"Name\": \"lagging_3\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/Lagging.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"3: Wierd face splatter thing!\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n
+    \       \"y\": 1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Sphere\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.03,\r\n            \"y\": 0.03,\r\n            \"z\": 0.03\r\n          }\r\n
+    \       }\r\n      ],\r\n      \"Name\": \"Point_2\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/PointObject.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"Sue's Law Books\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n        \"y\":
+    1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Sphere\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.03,\r\n            \"y\": 0.03,\r\n            \"z\": 0.03\r\n          }\r\n
+    \       }\r\n      ],\r\n      \"Name\": \"Point_1\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/PointObject.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"3D Printer X Axis and print nozzle assembly\",\r\n      \"Scale\": {\r\n        \"x\":
+    1.0,\r\n        \"y\": 1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n
+    \     \"Children\": [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\":
+    \"Cube\",\r\n          \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n
+    \         \"Position\": {\r\n            \"x\": -7.505639,\r\n            \"y\":
+    -1.23366189,\r\n            \"z\": 7.39363\r\n          },\r\n          \"RotateW\":
+    0.9238796,\r\n          \"RotateX\": 0.0,\r\n          \"RotateY\": -0.382683516,\r\n
+    \         \"RotateZ\": 0.0,\r\n          \"ToolTipText\": \"\",\r\n          \"Scale\":
+    {\r\n            \"x\": 0.0818892345,\r\n            \"y\": 0.08188918,\r\n            \"z\":
+    0.0818892345\r\n          }\r\n        }\r\n      ],\r\n      \"Name\": \"lagging_4\",\r\n
+    \     \"Description\": \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/Lagging.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"Temp Tooltip:\\nlagging_4\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n
+    \       \"y\": 1.0,\r\n        \"z\": 1.0\r\n      }\r\n    },\r\n    {\r\n      \"Children\":
+    [\r\n        {\r\n          \"Children\": [],\r\n          \"Name\": \"Cube\",\r\n
+    \         \"Description\": \"\",\r\n          \"PrefabSource\": \"\",\r\n          \"Position\":
+    {\r\n            \"x\": -7.505639,\r\n            \"y\": -1.23366189,\r\n            \"z\":
+    7.39363\r\n          },\r\n          \"RotateW\": 0.9238796,\r\n          \"RotateX\":
+    0.0,\r\n          \"RotateY\": -0.382683516,\r\n          \"RotateZ\": 0.0,\r\n
+    \         \"ToolTipText\": \"\",\r\n          \"Scale\": {\r\n            \"x\":
+    0.0496458448,\r\n            \"y\": 0.04964581,\r\n            \"z\": 0.0496458448\r\n
+    \         }\r\n        }\r\n      ],\r\n      \"Name\": \"lagging_1\",\r\n      \"Description\":
+    \"\",\r\n      \"PrefabSource\": \"Assets/Resources/ProcessPrefabs/Lagging.prefab\",\r\n
+    \     \"Position\": {\r\n        \"x\": -7.257639,\r\n        \"y\": -1.32166183,\r\n
+    \       \"z\": 7.06763\r\n      },\r\n      \"RotateW\": 0.7071068,\r\n      \"RotateX\":
+    0.0,\r\n      \"RotateY\": 0.7071068,\r\n      \"RotateZ\": 0.0,\r\n      \"ToolTipText\":
+    \"2. Orbisphere\",\r\n      \"Scale\": {\r\n        \"x\": 1.0,\r\n        \"y\":
+    1.0,\r\n        \"z\": 1.0\r\n      }\r\n    }\r\n  ],\r\n  \"Name\": \"\",\r\n
+    \ \"Description\": \"\"\r\n}"
