@@ -1,4 +1,5 @@
 # Process Hub
+![Process Hub](https://raw.githubusercontent.com/VRDL-Covid/Process-Hub/master/Assets/Icons/icon100100_dark.png)
 
 Process Hub is a Hololens first generation tool for managing (creating, updating) and running processes.
 You can:
