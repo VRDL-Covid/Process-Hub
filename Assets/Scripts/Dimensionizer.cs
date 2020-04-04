@@ -7,7 +7,7 @@ public class Dimensionizer : MonoBehaviour
     [Range(0,2)]
     public int dimChooser;
 
-    public GameObject dimension;
+    public GameObject dimension, midpoint;
 
     public Color lengthTextFaceColor = new Color(1, 1, 1);
     public string shaderColProperty = "_FaceColor";
@@ -20,12 +20,17 @@ public class Dimensionizer : MonoBehaviour
     {
         if (null == dimension)
             dimension = gameObject.transform.GetChild(0).gameObject;
+        if (null == midpoint)
+            midpoint = dimension.transform.GetChild(0).gameObject;
         if (null == lengthTextBox)
         {
             lengthTextBox = gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshPro>();
             lengthRayCastTextBox = gameObject.transform.GetChild(1).gameObject.transform.GetChild(1).GetComponent<TMPro.TextMeshPro>();
         }
         dimension.transform.localScale = scalerSource;
+        //Vector3 midpos = midpoint.transform.position;
+        //midpos[dimChooser] = scalerSource[dimChooser] / 2;
+        //midpoint.transform.position = midpos;
 
         lengthTextBox.text = string.Format("{0:0.0}m", scalerSource[dimChooser]);
         lengthTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
