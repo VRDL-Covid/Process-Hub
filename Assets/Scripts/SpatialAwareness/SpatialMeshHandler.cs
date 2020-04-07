@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit;
 
-namespace Scripts.SpatialMeshHandler
+namespace Scripts.SpatialAwareness
 {
     /// <summary>
     /// This class implements the <see cref="SpatialAwareness.IMixedRealitySpatialAwarenessObservationHandler{T}"/> interface. It keeps track
