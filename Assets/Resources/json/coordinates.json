@@ -1,0 +1,96 @@
+{
+  "me": {
+    "Name": "_markerPositions01",
+    "position": {
+      "x": -44.5426331,
+      "y": 40.7890625,
+      "z": -11.35112
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "rotation": {
+      "type": null,
+      "worldspace": false,
+      "values": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+      }
+    }
+  },
+  "markers": [
+    {
+      "Name": "goldMarker",
+      "position": {
+        "x": -44.5426331,
+        "y": 40.85979,
+        "z": -11.3511209
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "rotation": {
+        "type": null,
+        "worldspace": false,
+        "values": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        }
+      }
+    },
+    {
+      "Name": "greenMarker",
+      "position": {
+        "x": -47.2506523,
+        "y": 39.841507,
+        "z": -8.275209
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "rotation": {
+        "type": null,
+        "worldspace": false,
+        "values": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0,
+          "w": 0.0
+        }
+      }
+    },
+    {
+      "Name": "redMarker",
+      "position": {
+        "x": -41.8346176,
+        "y": 41.736618,
+        "z": -14.4270315
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "rotation": {
+        "type": null,
+        "worldspace": false,
+        "values": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        }
+      }
+    }
+  ]
+}

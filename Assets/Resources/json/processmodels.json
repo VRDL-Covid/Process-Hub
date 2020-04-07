@@ -1,0 +1,278 @@
+{
+  "processmodels": [
+    {
+      "Name": "Burlington Kitchen",
+      "RootName": "Burlington",
+      "Index": 0,
+      "models": [
+        {
+          "type": "FULL",
+          "isAnchored": false,
+          "tooltip": "LRM Full scale model",
+          "anchorName": "",
+          "prefabPath": "ProcessSpacePrefabs/FullModel1",
+          "positions": [
+            {
+              "type": "SetUp",
+              "worldspace": false,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "worldspace": true,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "scales": [
+            {
+              "type": "SetUp",
+              "worldspace": false,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "worldspace": true,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "rotations": [
+            {
+              "type": "SetUp",
+              "values": {
+                "w": 0.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "w": 0.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "TRAINING",
+          "isAnchored": false,
+          "tooltip": "LRM Training model",
+          "anchorName": "",
+          "prefabPath": "ProcessSpacePrefabs/SmallModel1",
+          "positions": [
+            {
+              "type": "SetUp",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "scales": [
+            {
+              "type": "SetUp",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "rotations": [
+            {
+              "type": "SetUp",
+              "values": {
+                "w": 57.0,
+                "x": 57.0,
+                "y": 57.0,
+                "z": 57.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "w": 7.0,
+                "x": 7.0,
+                "y": 7.0,
+                "z": 7.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Large Reactor Model",
+      "RootName": "LRM",
+      "Index": 1,
+      "models": [
+        {
+          "type": "FULL",
+          "isAnchored": false,
+          "tooltip": "LRM Full scale model",
+          "anchorName": "",
+          "prefabPath": "ProcessSpacePrefabs/FullModel1",
+          "positions": [
+            {
+              "type": "SetUp",
+              "worldspace": false,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "worldspace": true,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "scales": [
+            {
+              "type": "SetUp",
+              "worldspace": false,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "worldspace": true,
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "rotations": [
+            {
+              "type": "SetUp",
+              "values": {
+                "w": 0.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "w": 0.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "type": "TRAINING",
+          "isAnchored": false,
+          "tooltip": "LRM Training model",
+          "anchorName": "",
+          "prefabPath": "ProcessSpacePrefabs/SmallModel1",
+          "positions": [
+            {
+              "type": "SetUp",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "scales": [
+            {
+              "type": "SetUp",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "rotations": [
+            {
+              "type": "SetUp",
+              "values": {
+                "w": 57.0,
+                "x": 57.0,
+                "y": 57.0,
+                "z": 57.0
+              }
+            },
+            {
+              "type": "Operate",
+              "values": {
+                "w": 7.0,
+                "x": 7.0,
+                "y": 7.0,
+                "z": 7.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 
