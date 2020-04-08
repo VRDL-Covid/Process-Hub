@@ -22,10 +22,26 @@ namespace Scripts.Json
 
             public void SetRotation(Quaternion rot)
             {
-               this.rotation.values.x = rot.y;
+               this.rotation.values.w = rot.w;
+               this.rotation.values.x = rot.x;
                this.rotation.values.y = rot.y;
                this.rotation.values.z = rot.z;
             }
+
+            [JsonIgnore]
+            public Quaternion Rotation
+            {
+                get
+                {
+                    Quaternion qtn = new Quaternion();
+                    qtn.w = this.rotation.values.w;
+                    qtn.x = this.rotation.values.x;
+                    qtn.y = this.rotation.values.y;
+                    qtn.z = this.rotation.values.z;
+                    return qtn;
+                }
+            }
+
         }
         [System.Serializable]
         public class Vect4

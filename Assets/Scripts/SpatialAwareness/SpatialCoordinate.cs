@@ -15,6 +15,8 @@ namespace Scripts.SpatialAwareness
     {
         public JSONSTATE jsonState = JSONSTATE.NOT_WRITTEN;
 
+        public string coordinateJson = "coordinates";
+
 #if UNITY_EDITOR  
         void Update()
         {
@@ -47,7 +49,7 @@ namespace Scripts.SpatialAwareness
 
         public void SaveDataData(SpatialCoordinates spcoords)
         {
-            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, "coordinates");
+            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, coordinateJson);
 
             string json = JsonConvert.SerializeObject(spcoords, Formatting.Indented);
             byte[] data = Encoding.ASCII.GetBytes(json);
