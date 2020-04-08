@@ -4,6 +4,7 @@ using UnityEngine;
 using Scripts.Json;
 using Newtonsoft.Json;
 using System.Text;
+using System.Linq;
 
 namespace Scripts.SpatialAwareness
 {
@@ -14,6 +15,10 @@ namespace Scripts.SpatialAwareness
 
         public GameObject marker;
 
+        public Material[] coneMaterials = new Material[3];
+
+        public GameObject MarkerSpawnPoint;
+
         public Color[] axisColours = new Color [3];
 
         public Vector3 lengths = new Vector3(1, 1, 1);
@@ -23,7 +28,7 @@ namespace Scripts.SpatialAwareness
         string[] axisNames = new string[3] { "_xlength", "_ylength", "_zlength" };
         SpatialCoordinates spcoord;
 
-        List<GameObject> markers = new List<GameObject>();
+        public List<GameObject> markers = new List<GameObject>();
 
         public void SnapMarker()
         {
@@ -35,28 +40,57 @@ namespace Scripts.SpatialAwareness
             // create the marker object....
             marker = GameObject.Instantiate(markerPrefab);
 
-            SetUpMarker(marker, lengths);
+            SetUpMarker(marker, lengths, 0);
 
             // snap it to me...
             marker.transform.position = gameObject.transform.position;
         }
 
-        public void GetCoordinateData()
+        #region App Bar button event handlers...
+        public void SpawnMarkers()
         {
             spcoord = ReadCoordinateData(coordJSON);
 
+            int mrkrIdx = 0;
             foreach (SpatialCoordinates.Marker marker in spcoord.markers)
             {
-                GameObject omrkr = GameObject.Instantiate(markerPrefab, marker.position, marker.Rotation);
-                markers.Add(omrkr);
-                SetUpMarker(omrkr, marker.lengths);
+                GameObject omrkr = markers.FirstOrDefault(m => m.name == marker.Name);
+                if (null == omrkr)
+                {
+                    omrkr = GameObject.Instantiate(markerPrefab, MarkerSpawnPoint.transform.position + marker.position, marker.Rotation);
+                    omrkr.name = marker.Name;
+                    markers.Add(omrkr);
+                    omrkr.transform.SetParent(MarkerSpawnPoint.transform);
+                }
+                SetUpMarker(omrkr, marker.lengths, mrkrIdx++);
             }
         }
-
-        private void SetUpMarker(GameObject marker, Vector3 lengths)
+        public void SeekMarkers()
         {
 
+        }
 
+        public void ResetMarkers()
+        {
+            SpawnMarkers();
+        }
+
+        public void DeleteMarkers()
+        {
+            foreach (GameObject marker in markers)
+                GameObject.Destroy(marker);
+            markers.Clear();
+        }
+
+        #endregion button handlers
+
+        private void SetUpMarker(GameObject marker, Vector3 lengths, int mrkrIdx)
+        {
+
+            // set the cone material
+            SetConeMaterial scm = marker.GetComponent<SetConeMaterial>();
+            if (null != scm)
+                scm.ConeMaterial = coneMaterials[mrkrIdx];
             // Get axis parent...
             GameObject axisParent = null;
             for(int i = 0; i < marker.transform.childCount;i++)
@@ -88,17 +122,17 @@ namespace Scripts.SpatialAwareness
 
                 odzr.scalerSource = scalerSource;
                 odzr.directionToCast = directionToCast;
-                odzr.lengthTextFaceColor = axisColours[axisPos];
+               // odzr.lengthTextFaceColor = axisColours[axisPos];
                 axisPos++;
             }
         }
 
-        private void Start()
+        private void _Start()
         {
-            GetCoordinateData();
+            SpawnMarkers();
         }
 
-        public SpatialCoordinates ReadCoordinateData(string fileName)
+        private SpatialCoordinates ReadCoordinateData(string fileName)
         {
             SpatialCoordinates spcoords = new SpatialCoordinates();
             string json = string.Empty;
