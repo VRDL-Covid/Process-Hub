@@ -146,7 +146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8863482124825134610, guid: 0e300a51b5e26fc478e4beb01c7d06db, type: 3}
+  - {fileID: 2100000, guid: 916f283a417e8af4489a5d9b10ef7753, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,7 +292,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2505642851634945670, guid: 0e300a51b5e26fc478e4beb01c7d06db, type: 3}
+  - {fileID: 2100000, guid: c46c0c2092017c54e92e857ed83f4509, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4420,6 +4420,7 @@ GameObject:
   - component: {fileID: 7458238148375903539}
   - component: {fileID: 7458238148375903540}
   - component: {fileID: 7458238148375903541}
+  - component: {fileID: 2771562483625812124}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -4626,6 +4627,19 @@ MonoBehaviour:
   OnHoverExited:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2771562483625812124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458238148375903538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffca21211cfa4af469304ca973a424fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markerCone: {fileID: 1946581729679770959}
 --- !u!1 &7458238148378803242
 GameObject:
   m_ObjectHideFlags: 0
@@ -16148,7 +16162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7211448773848044386, guid: 0e300a51b5e26fc478e4beb01c7d06db, type: 3}
+  - {fileID: 2100000, guid: c33d0af1d57371e4099e96a822a33d61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16228,7 +16242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7770318624900243041, guid: 0e300a51b5e26fc478e4beb01c7d06db, type: 3}
+  - {fileID: 2100000, guid: 3f29d14d8148f1a47944e17be8b1c02d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

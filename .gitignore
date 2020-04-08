@@ -59,3 +59,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.meta
+/Assets/Resources/ProcessPrefabs/_TO_DELETE
+/Assets/Fire_Extinguisher
+/Assets/MixedRealityToolkit
+/Assets/MixedRealityToolkit.Examples
+/Assets/MixedRealityToolkit.SDK
+/Assets/MixedRealityToolkit.Services
+/Assets/TextMesh Pro
