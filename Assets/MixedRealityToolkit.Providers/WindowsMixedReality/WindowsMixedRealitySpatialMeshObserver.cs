@@ -274,7 +274,16 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.SpatialAwareness
 
             // Clear any pending work.
             meshWorkQueue.Clear();
-#endif // UNITY_WSA
+
+            // Begin Patch
+            if (outstandingMeshObject != null)
+            {
+                ReclaimMeshObject(outstandingMeshObject);
+                outstandingMeshObject = null;
+            }
+            // End Patch
+
+#endif // UNITY_WSA#endif // UNITY_WSA
         }
 
 #if UNITY_WSA
