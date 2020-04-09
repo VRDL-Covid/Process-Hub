@@ -22,6 +22,8 @@ namespace Scripts.SpatialAwareness
         public Color[] axisColours = new Color [3];
 
         public Vector3 lengths = new Vector3(1, 1, 1);
+        
+        public Vector3 offset = new Vector3(0.2f, -0.2f, 0.2f);
 
         public string coordJSON = "coordinates";
 
@@ -57,7 +59,7 @@ namespace Scripts.SpatialAwareness
                 GameObject omrkr = markers.FirstOrDefault(m => m.name == marker.Name);
                 if (null == omrkr)
                 {
-                    omrkr = GameObject.Instantiate(markerPrefab, MarkerSpawnPoint.transform.position + marker.position, marker.Rotation);
+                    omrkr = GameObject.Instantiate(markerPrefab, MarkerSpawnPoint.transform.position + marker.position + offset, Quaternion.identity);//, marker.Rotation);
                     omrkr.name = marker.Name;
                     markers.Add(omrkr);
                     omrkr.transform.SetParent(MarkerSpawnPoint.transform);
@@ -127,7 +129,7 @@ namespace Scripts.SpatialAwareness
             }
         }
 
-        private void _Start()
+        private void Start()
         {
             SpawnMarkers();
         }
