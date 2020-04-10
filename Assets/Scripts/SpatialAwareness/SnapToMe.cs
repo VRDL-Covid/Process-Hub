@@ -13,7 +13,7 @@ namespace Scripts.SpatialAwareness
         public GameObject markerPrefab;
         public string axisParentName;
 
-        public GameObject marker;
+        public GameObject markerPositionsPrefab;
 
         public Material[] coneMaterials = new Material[3];
 
@@ -32,41 +32,47 @@ namespace Scripts.SpatialAwareness
 
         public List<GameObject> markers = new List<GameObject>();
 
-        public void SnapMarker()
-        {
-            // instantiate colors now to keep memory usage down,,,
-            axisColours[0] = Color.red;
-            axisColours[1] = Color.green;
-            axisColours[2] = Color.blue;
-
-            // create the marker object....
-            marker = GameObject.Instantiate(markerPrefab);
-
-            SetUpMarker(marker, lengths, 0);
-
-            // snap it to me...
-            marker.transform.position = gameObject.transform.position;
-        }
-
         #region App Bar button event handlers...
         public void SpawnMarkers()
         {
+            // read json pos information...
             spcoord = ReadCoordinateData(coordJSON);
 
             int mrkrIdx = 0;
+
+            // create instance of object (same one used to generate Json above)...
+            GameObject markerPositions = GameObject.Instantiate(markerPositionsPrefab);
+            //reset position to the marker used to move all the markers...
+            markerPositions.transform.position = MarkerSpawnPoint.transform.position;
+
+            //get the mean of the marker positions...
+            Vector3 centroid = CalculateCentroid();
+
+            // now create a SmartMarker and replace all the child markers...
             foreach (SpatialCoordinates.Marker marker in spcoord.markers)
             {
                 GameObject omrkr = markers.FirstOrDefault(m => m.name == marker.Name);
                 if (null == omrkr)
                 {
-                    omrkr = GameObject.Instantiate(markerPrefab, MarkerSpawnPoint.transform.position + marker.position + offset, Quaternion.identity);//, marker.Rotation);
+                    GameObject posToDelete = markerPositions.transform.Find(marker.Name).gameObject;
+                    if (null != posToDelete)
+                    {
+                        omrkr = GameObject.Instantiate(markerPrefab, posToDelete.transform.position, marker.Rotation);
+                        omrkr.transform.SetParent(markerPositions.transform);
+                        GameObject.Destroy(posToDelete);
+                    }
+
+                    // calc position...
+                    //Vector3 markerPos = new Vector3(markerParent.transform.position.x - centroid.x - marker.position.x, marker.position.y, markerParent.transform.position.z - centroid.z - marker.position.z);
                     omrkr.name = marker.Name;
                     markers.Add(omrkr);
-                    omrkr.transform.SetParent(MarkerSpawnPoint.transform);
+                    markerPositions.transform.SetParent(MarkerSpawnPoint.transform);
                 }
                 SetUpMarker(omrkr, marker.lengths, mrkrIdx++);
             }
+            //GetClosestObject(markerParent.transform);
         }
+
         public void SeekMarkers()
         {
 
@@ -85,6 +91,47 @@ namespace Scripts.SpatialAwareness
         }
 
         #endregion button handlers
+
+        Transform GetClosestObject(Transform referenceObject)
+        {
+            Transform tMin = null;
+            int posIdx = -1;
+            float minDist = Mathf.Infinity;
+            Vector3 currentPos = referenceObject.position;
+
+            for (int i = 0; i < referenceObject.childCount; i++)
+            {
+                float dist = Vector3.Distance(referenceObject.GetChild(i).transform.position, currentPos);
+                if (dist < minDist)
+                {
+                    posIdx = i;
+                    tMin = referenceObject.GetChild(i).transform;
+                    minDist = dist;
+                }
+            }
+
+            Vector3 offset = referenceObject.position - tMin.position;
+            // now move offset the children by the difference between the reference objects position and the closest object...
+            for (int i = 0; i < referenceObject.childCount; i++)
+            {
+                referenceObject.GetChild(i).transform.position -= offset;
+            }
+
+            return tMin;
+        }
+
+        public Vector3 CalculateCentroid()
+        {
+            Vector3 centroid = Vector3.zero;
+            List<Vector3> centroids = spcoord.markers.Select(m => m.position).ToList<Vector3>();
+            // get all child gameobjects of type Centroid and calculate their barycentric value...
+            foreach(Vector3 pos in centroids)
+                centroid += pos;
+
+            centroid /= centroids.Count;
+
+            return centroid;
+        }
 
         private void SetUpMarker(GameObject marker, Vector3 lengths, int mrkrIdx)
         {
