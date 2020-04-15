@@ -1,0 +1,1741 @@
+{
+  "anchorObjects": [
+    {
+      "Children": [
+        {
+          "Children": [
+            {
+              "Children": [
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_dim01.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_dim02.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_dim03.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.4641088,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_GoldPos",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_GreenPos",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.000",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.67123437,
+                    "y": 0.406405032,
+                    "z": 3.40324688
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.67123437,
+                    "y": 0.406405032,
+                    "z": 0.371980578
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.51947629,
+                    "y": -0.4082808,
+                    "z": 1.80046439
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.003",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.41492486,
+                    "y": -0.8714586,
+                    "z": 3.63185358
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.004",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.266868,
+                    "y": -0.284313947,
+                    "z": 0.181359246
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.005",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.57860065,
+                    "y": -0.349085063,
+                    "z": 1.94780242
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holopoint.006",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 0.8160428,
+                    "y": -0.615244448,
+                    "z": 1.27600765
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_holowaypoints",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 3.7185142,
+                    "y": -0.5651062,
+                    "z": 1.90660644
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_livingArea",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.81250024,
+                    "y": -0.4784735,
+                    "z": 1.11470878
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [
+                    {
+                      "Children": [],
+                      "MediaURLs": [],
+                      "StepStatus": "Incomplete",
+                      "StepMode": "SetUp",
+                      "Name": "goldMarker",
+                      "ParentName": "_Markers",
+                      "Description": null,
+                      "Category": null,
+                      "RunOrder": 0,
+                      "PrefabSource": "",
+                      "Position": {
+                        "x": 0.7444783,
+                        "y": -0.0620279722,
+                        "z": 0.5314935
+                      },
+                      "RotateW": 0.707106769,
+                      "RotateX": 0.7071069,
+                      "RotateY": 0.0,
+                      "RotateZ": 0.0,
+                      "ToolTipText": null,
+                      "Scale": {
+                        "x": 0.01,
+                        "y": 0.01,
+                        "z": 0.01
+                      }
+                    },
+                    {
+                      "Children": [],
+                      "MediaURLs": [],
+                      "StepStatus": "Incomplete",
+                      "StepMode": "SetUp",
+                      "Name": "greenMarker",
+                      "ParentName": "_Markers",
+                      "Description": null,
+                      "Category": null,
+                      "RunOrder": 0,
+                      "PrefabSource": "",
+                      "Position": {
+                        "x": 0.7173981,
+                        "y": -0.09278708,
+                        "z": 0.5213106
+                      },
+                      "RotateW": 5.3390977E-08,
+                      "RotateX": 5.3390977E-08,
+                      "RotateY": 0.7071069,
+                      "RotateZ": -0.7071068,
+                      "ToolTipText": null,
+                      "Scale": {
+                        "x": 0.01,
+                        "y": 0.01,
+                        "z": 0.01
+                      }
+                    },
+                    {
+                      "Children": [],
+                      "MediaURLs": [],
+                      "StepStatus": "Incomplete",
+                      "StepMode": "SetUp",
+                      "Name": "redMarker",
+                      "ParentName": "_Markers",
+                      "Description": null,
+                      "Category": null,
+                      "RunOrder": 0,
+                      "PrefabSource": "",
+                      "Position": {
+                        "x": 0.7655313,
+                        "y": -0.03126886,
+                        "z": 0.5373408
+                      },
+                      "RotateW": 0.707106769,
+                      "RotateX": 0.7071069,
+                      "RotateY": 0.0,
+                      "RotateZ": 0.0,
+                      "ToolTipText": null,
+                      "Scale": {
+                        "x": 0.01,
+                        "y": 0.01,
+                        "z": 0.01
+                      }
+                    }
+                  ],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_Markers",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.0673291,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_RedPos",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "_sofa",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 0.8160428,
+                    "y": -1.01524436,
+                    "z": 1.27600765
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "bookcase",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "cooker",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "Cube.000",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "Cube.003",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "Cube.009",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "floor cupboards1",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "floor cupboards2",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "floor.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "goldMarker.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "greenMarker.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "left cupobard",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "redMarker.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "right cupboard",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "small bookcase",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "walls",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.042111814,
+                    "y": 0.1962912,
+                    "z": -1.499386
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "worktop",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -0.751998246,
+                    "y": 0.128482059,
+                    "z": -0.5301129
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xaxis",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.00000036,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xaxis.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 5.3390977E-08,
+                  "RotateX": 0.7071069,
+                  "RotateY": 0.707106769,
+                  "RotateZ": 5.3390977E-08,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": -1.0,
+                    "y": -0.241336584,
+                    "z": -1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xaxis.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 1.3767567E-07,
+                  "RotateX": 0.7071069,
+                  "RotateY": 0.707106769,
+                  "RotateZ": 1.3767567E-07,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.76737177,
+                    "y": 1.87884164,
+                    "z": 1.7593838
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xText",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.70994508,
+                    "y": 0.7266293,
+                    "z": -3.57973933
+                  },
+                  "RotateW": 0.707106769,
+                  "RotateX": 0.7071069,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.118606292,
+                    "y": 0.118606292,
+                    "z": 0.118606292
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xText.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.98142517,
+                    "y": -0.3921852,
+                    "z": 1.17152214
+                  },
+                  "RotateW": 1.94704626E-07,
+                  "RotateX": -6.12323559E-17,
+                  "RotateY": 1.00000012,
+                  "RotateZ": 6.123235E-17,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "xText.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.71851563,
+                    "y": -0.8651318,
+                    "z": 2.53602958
+                  },
+                  "RotateW": 0.0,
+                  "RotateX": -2.7535134E-07,
+                  "RotateY": -0.707106769,
+                  "RotateZ": 0.7071069,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.0484483764,
+                    "y": 0.104390122,
+                    "z": 0.104390122
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yaxis",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 1.94704626E-07,
+                  "RotateX": -6.12323559E-17,
+                  "RotateY": 1.00000012,
+                  "RotateZ": 6.123235E-17,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 0.9999985,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yaxis.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.816545546,
+                    "y": 1.30745327,
+                    "z": 1.7593838
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yaxis.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 0.9999993,
+                    "z": 1.0
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yText",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.33313167,
+                    "y": 1.01524436,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 0.707106769,
+                  "RotateX": 0.7071069,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.132514432,
+                    "y": 0.132514432,
+                    "z": 0.132514432
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yText.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.301036,
+                    "y": 0.8447394,
+                    "z": 1.16301942
+                  },
+                  "RotateW": 0.5000001,
+                  "RotateX": 0.500000238,
+                  "RotateY": -0.4999998,
+                  "RotateZ": 0.49999994,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.174352437,
+                    "y": 0.174352437,
+                    "z": 0.174352437
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "yText.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.45897031,
+                    "y": -0.186562642,
+                    "z": 2.275215
+                  },
+                  "RotateW": 0.5000002,
+                  "RotateX": 0.500000358,
+                  "RotateY": 0.499999732,
+                  "RotateZ": -0.49999997,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.103507929,
+                    "y": 0.0480389446,
+                    "z": 0.103507929
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zaxis",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.30191648,
+                    "y": -0.469753861,
+                    "z": 1.18548667
+                  },
+                  "RotateW": 0.5000001,
+                  "RotateX": 0.49999997,
+                  "RotateY": 0.5,
+                  "RotateZ": 0.5000001,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.7593838,
+                    "y": 1.25583231,
+                    "z": 1.7593838
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zaxis.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.4600153,
+                    "y": -0.8802255,
+                    "z": 2.54579854
+                  },
+                  "RotateW": 0.4999999,
+                  "RotateX": 0.5000001,
+                  "RotateY": 0.5000001,
+                  "RotateZ": 0.49999994,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.7593838,
+                    "y": 0.042653583,
+                    "z": 0.816545546
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zaxis.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.3532995,
+                    "y": 0.7227926,
+                    "z": -3.60602355
+                  },
+                  "RotateW": 1.00000012,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 0.999999464
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zText",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.35417962,
+                    "y": 0.746294558,
+                    "z": -3.631854
+                  },
+                  "RotateW": 0.5,
+                  "RotateX": 0.50000006,
+                  "RotateY": -0.5,
+                  "RotateZ": 0.50000006,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.07199599,
+                    "y": 0.07199599,
+                    "z": 0.07199599
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zText.001",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 1.301036,
+                    "y": -0.4462518,
+                    "z": 1.99201107
+                  },
+                  "RotateW": 0.5000001,
+                  "RotateX": 0.5000003,
+                  "RotateY": -0.499999732,
+                  "RotateZ": 0.49999994,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.213476181,
+                    "y": 0.213476181,
+                    "z": 0.213476181
+                  }
+                },
+                {
+                  "Children": [],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "zText.002",
+                  "ParentName": "_46BurlingtonWay03",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": -3.45960736,
+                    "y": -0.987301946,
+                    "z": 2.22599578
+                  },
+                  "RotateW": 0.50000006,
+                  "RotateX": 0.500000358,
+                  "RotateY": 0.4999998,
+                  "RotateZ": -0.5,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 0.119282283,
+                    "y": 0.05535996,
+                    "z": 0.119282283
+                  }
+                }
+              ],
+              "MediaURLs": [],
+              "StepStatus": "Incomplete",
+              "StepMode": "SetUp",
+              "Name": "_46BurlingtonWay03",
+              "ParentName": "Cube",
+              "Description": null,
+              "Category": null,
+              "RunOrder": 0,
+              "PrefabSource": "",
+              "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -0.0746755
+              },
+              "RotateW": 1.00000012,
+              "RotateX": 0.0,
+              "RotateY": 0.0,
+              "RotateZ": 0.0,
+              "ToolTipText": null,
+              "Scale": {
+                "x": 0.119073294,
+                "y": 0.3623166,
+                "z": 0.1081225
+              }
+            }
+          ],
+          "MediaURLs": [],
+          "StepStatus": "Incomplete",
+          "StepMode": "SetUp",
+          "Name": "Cube",
+          "ParentName": "SmallModel2(Clone)",
+          "Description": null,
+          "Category": null,
+          "RunOrder": 0,
+          "PrefabSource": "",
+          "Position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "RotateW": 1.0,
+          "RotateX": 0.0,
+          "RotateY": -0.000245239964,
+          "RotateZ": 0.0,
+          "ToolTipText": null,
+          "Scale": {
+            "x": 1.13085,
+            "y": 0.371649981,
+            "z": 1.24539
+          }
+        },
+        {
+          "Children": [],
+          "MediaURLs": [],
+          "StepStatus": "Incomplete",
+          "StepMode": "SetUp",
+          "Name": "Directional Light",
+          "ParentName": "SmallModel2(Clone)",
+          "Description": null,
+          "Category": null,
+          "RunOrder": 0,
+          "PrefabSource": "",
+          "Position": {
+            "x": -5.37456226,
+            "y": 0.296304047,
+            "z": 3.929429
+          },
+          "RotateW": 0.8753686,
+          "RotateX": 0.408191055,
+          "RotateY": -0.23478438,
+          "RotateZ": 0.109481744,
+          "ToolTipText": null,
+          "Scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        {
+          "Children": [
+            {
+              "Children": [],
+              "MediaURLs": [],
+              "StepStatus": "Incomplete",
+              "StepMode": "SetUp",
+              "Name": "Anchor",
+              "ParentName": "ToolTip",
+              "Description": null,
+              "Category": null,
+              "RunOrder": 0,
+              "PrefabSource": "",
+              "Position": {
+                "x": 1.051,
+                "y": -0.04900002,
+                "z": -1.03
+              },
+              "RotateW": 1.0,
+              "RotateX": 0.0,
+              "RotateY": 0.0,
+              "RotateZ": 0.0,
+              "ToolTipText": null,
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            },
+            {
+              "Children": [
+                {
+                  "Children": [
+                    {
+                      "Children": [],
+                      "MediaURLs": [],
+                      "StepStatus": "Incomplete",
+                      "StepMode": "SetUp",
+                      "Name": "Label",
+                      "ParentName": "ContentParent",
+                      "Description": null,
+                      "Category": null,
+                      "RunOrder": 0,
+                      "PrefabSource": "",
+                      "Position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "RotateW": 1.0,
+                      "RotateX": 0.0,
+                      "RotateY": 0.0,
+                      "RotateZ": 0.0,
+                      "ToolTipText": null,
+                      "Scale": {
+                        "x": 0.005,
+                        "y": 0.005,
+                        "z": 0.005
+                      }
+                    },
+                    {
+                      "Children": [],
+                      "MediaURLs": [],
+                      "StepStatus": "Incomplete",
+                      "StepMode": "SetUp",
+                      "Name": "TipBackground",
+                      "ParentName": "ContentParent",
+                      "Description": null,
+                      "Category": null,
+                      "RunOrder": 0,
+                      "PrefabSource": "",
+                      "Position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.001
+                      },
+                      "RotateW": 1.0,
+                      "RotateX": 0.0,
+                      "RotateY": 0.0,
+                      "RotateZ": 0.0,
+                      "ToolTipText": null,
+                      "Scale": {
+                        "x": 0.143880919,
+                        "y": 0.03495355,
+                        "z": 1.0
+                      }
+                    }
+                  ],
+                  "MediaURLs": [],
+                  "StepStatus": "Incomplete",
+                  "StepMode": "SetUp",
+                  "Name": "ContentParent",
+                  "ParentName": "Pivot",
+                  "Description": null,
+                  "Category": null,
+                  "RunOrder": 0,
+                  "PrefabSource": "",
+                  "Position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "RotateW": 1.0,
+                  "RotateX": 0.0,
+                  "RotateY": 0.0,
+                  "RotateZ": 0.0,
+                  "ToolTipText": null,
+                  "Scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                  }
+                }
+              ],
+              "MediaURLs": [],
+              "StepStatus": "Incomplete",
+              "StepMode": "SetUp",
+              "Name": "Pivot",
+              "ParentName": "ToolTip",
+              "Description": null,
+              "Category": null,
+              "RunOrder": 0,
+              "PrefabSource": "",
+              "Position": {
+                "x": 0.25,
+                "y": 0.35,
+                "z": 0.0
+              },
+              "RotateW": 1.0,
+              "RotateX": 0.0,
+              "RotateY": 0.0,
+              "RotateZ": 0.0,
+              "ToolTipText": null,
+              "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+              }
+            }
+          ],
+          "MediaURLs": [],
+          "StepStatus": "Incomplete",
+          "StepMode": "SetUp",
+          "Name": "ToolTip",
+          "ParentName": "SmallModel2(Clone)",
+          "Description": null,
+          "Category": null,
+          "RunOrder": 0,
+          "PrefabSource": "",
+          "Position": {
+            "x": -1.051,
+            "y": 0.04900002,
+            "z": 1.03
+          },
+          "RotateW": 1.0,
+          "RotateX": 0.0,
+          "RotateY": 0.0,
+          "RotateZ": 0.0,
+          "ToolTipText": null,
+          "Scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        }
+      ],
+      "MediaURLs": [],
+      "StepStatus": "Incomplete",
+      "StepMode": "SetUp",
+      "Name": "SmallModel2(Clone)",
+      "ParentName": null,
+      "Description": null,
+      "Category": null,
+      "RunOrder": 0,
+      "PrefabSource": "ProcessSpacePrefabs/SmallModel2",
+      "Position": {
+        "x": -0.6295445,
+        "y": 0.0,
+        "z": -3.91279244
+      },
+      "RotateW": 1.0,
+      "RotateX": 0.0,
+      "RotateY": 0.0,
+      "RotateZ": 0.0,
+      "ToolTipText": null,
+      "Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    }
+  ],
+  "Name": null,
+  "Description": null
+}
