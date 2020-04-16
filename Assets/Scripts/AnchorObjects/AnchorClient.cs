@@ -35,18 +35,11 @@ namespace Scripts.AnchorObjects
 
             wam.gameObjectsToSerialize.Add(objToAnchor.name, new AnchoredGameObject(objToAnchor, prefabPath));
 
-
-            // called but non-functional if WINDOWS_UWP not defined... 
-            wam.CreateWorldAnchor(objToAnchor);
         }
 
         public void DeleteWorldAnchor()
         {
-            // called but non-functional if WINDOWS_UWP not defined... 
-            wam.DeleteWorldAnchor(objToAnchor.name);
-            
-            // destroy the attached blob...
-            Destroy(objToAnchor.GetComponent<WorldAnchor>());
+
         }
     }
 }

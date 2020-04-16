@@ -4,10 +4,10 @@ using UnityEngine;
 using System.Linq;
 using Scripts.Json;
 
-#if WINDOWS_UWP
+//#if WINDOWS_UWP
     using MST = Microsoft.MixedReality.Toolkit.UI;
     using Microsoft.MixedReality.Toolkit.Utilities;
-#endif
+//#endif
 
 namespace Scripts.AnchorObjects
 {
@@ -42,7 +42,8 @@ namespace Scripts.AnchorObjects
         {
             this.PrefabSource = prefabPath;
             this.Name = objToAnchor.name;
-            this.ParentName = objToAnchor.transform.parent.name;
+            if (null != objToAnchor.transform.parent)
+                this.ParentName = objToAnchor.transform.parent.name;
             this.Position = objToAnchor.transform.localPosition;
             this.RotateW = objToAnchor.transform.rotation.w;
             this.RotateX = objToAnchor.transform.rotation.x;
@@ -52,11 +53,11 @@ namespace Scripts.AnchorObjects
             if (addChildren)
                 this.AddChildren(objToAnchor);
 
-#if WINDOWS_UWP
+//#if WINDOWS_UWP
             MST.ToolTip ttip = objToAnchor.GetComponentInChildren<MST.ToolTip>();
             if (ttip != null)
                 ToolTipText = ttip.ToolTipText;
-#endif
+//#endif
         }
 
         public void StoreGameObjectParameters()
@@ -82,11 +83,11 @@ namespace Scripts.AnchorObjects
 
         public void SetToolTip(GameObject go)
         {
-#if WINDOWS_UWP
+//#if WINDOWS_UWP
             MST.ToolTip ttip = go.GetComponentInChildren<MST.ToolTip>();
             if (ttip != null)
                 ttip.ToolTipText = this.ToolTipText;
-#endif
+//#endif
         }
 
 
