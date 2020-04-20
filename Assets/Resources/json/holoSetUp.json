@@ -11,6 +11,10 @@
     {
       "Name": "Safety",
       "Index": 2
+    },
+    {
+      "Name": "Observation Check",
+      "Index": 3
     }
   ],
   "holograms": [

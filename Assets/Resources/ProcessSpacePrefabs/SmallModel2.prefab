@@ -1795,9 +1795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   operatingMode: 0
-  hideWhenOperating:
-  - {fileID: 1819644391072827752}
-  - {fileID: 6338748102371180331}
+  removeGameObjectInMode: []
+  disableComponentInMode: []
 --- !u!1 &2164382728247739820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10207,7 +10206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03ffbd6362d0cb44adf2dcbf663d9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToAnchor: {fileID: 0}
+  objToAnchor: {fileID: 2033754699134822435}
 --- !u!1 &8374556989461135308
 GameObject:
   m_ObjectHideFlags: 0
