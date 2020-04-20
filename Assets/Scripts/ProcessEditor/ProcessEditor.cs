@@ -1,4 +1,4 @@
-﻿//#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 
 using UnityEngine;
 using UnityEditor;
@@ -618,4 +618,4 @@ namespace Scripts.ProcessEditorObjects
         }
     }
 }
-//#endif
+#endif

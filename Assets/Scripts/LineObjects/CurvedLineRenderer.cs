@@ -31,6 +31,7 @@ namespace Scripts.LineObjects
 
             // redo order...
             this.linePositions = linePositions;
+            SetPointsToLine(true);
             Update();
         }
 
@@ -50,9 +51,16 @@ namespace Scripts.LineObjects
                 linePositions[i] = linePoints[i].transform.position;
             }
         }
-
         void SetPointsToLine()
         {
+            SetPointsToLine(false);
+        }
+        void SetPointsToLine(bool forceUpdate)
+        {
+            bool moved = false;
+
+            //override if requested...
+            moved = forceUpdate;
             //create old positions if they dont match
             if (linePositionsOld.Length != linePositions.Length)
             {
@@ -60,7 +68,6 @@ namespace Scripts.LineObjects
             }
 
             //check if line points have moved
-            bool moved = false;
             for (int i = 0; i < linePositions.Length; i++)
             {
                 //compare

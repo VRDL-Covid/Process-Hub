@@ -33,7 +33,9 @@ public class ProcessData : MonoBehaviour
             if (model)
             {
                 GameObject modelInstance = GameObject.Instantiate(model, CameraCache.Main.transform.position + new Vector3(0, 0, 1.5f), Quaternion.identity);
-
+                modelInstance.name = string.Format("{0}_{1}", toolTipText, index);
+                ProcessTextBox.text = title.text;
+                index++;
                 PrefabData pd = modelInstance.GetComponent<PrefabData>();
                 pd.prefabPath = this.prefabToLoad;
                 aspectTransformer.targetTransform = modelInstance.transform;

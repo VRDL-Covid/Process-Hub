@@ -27,6 +27,7 @@ namespace Scripts.AnchorObjects
         public float RotateX { get; set; }
         public float RotateY { get; set; }
         public float RotateZ { get; set; }
+        public string type { get; set; }
         public string ToolTipText { get; set; }
         public Vector3 Scale { get; set; }
 

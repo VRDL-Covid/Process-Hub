@@ -25,7 +25,7 @@ namespace Scripts.AnchorObjects
                 //find the WAM object and set the InstanceID
                 WorldAnchorManager wam = GameObject.Find("WAM").GetComponent<WorldAnchorManager>();
                 wam.instanceID = PlayerPrefs.GetInt("instanceid");
-                wam.fileName = PlayerPrefs.GetString("jsonfilename");
+                wam.anchorsFileName = PlayerPrefs.GetString("jsonfilename");
             }
         }
 

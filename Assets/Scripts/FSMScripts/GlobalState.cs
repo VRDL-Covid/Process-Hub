@@ -58,7 +58,7 @@ public class GlobalState : MonoBehaviour
         stepIndicator = camera.transform.GetComponentInChildren<StepIndicator>();
 #endif
 
-        wam.fileName = PlayerPrefs.GetString("jsonfilename");
+        wam.anchorsFileName = PlayerPrefs.GetString("jsonfilename");
         wam.instanceID = PlayerPrefs.GetInt("instanceid");
 #if WINDOWS_UWP
         wam.InitiateAnchorLoad();

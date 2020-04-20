@@ -34,7 +34,7 @@ namespace Scripts.AnchorObjects
             }
 
             wam.gameObjectsToSerialize.Add(objToAnchor.name, new AnchoredGameObject(objToAnchor, prefabPath));
-
+            wam.CreateWorldAnchor(objToAnchor);
         }
 
         public void DeleteWorldAnchor()

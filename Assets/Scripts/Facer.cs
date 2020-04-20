@@ -8,9 +8,11 @@ public class Facer : MonoBehaviour
     // Start is called before the first frame update
     public bool keepFacingCamera;
 
+    //public Vector3 rotationOffset = new Vector3(0, 180, 0);
+
     void Start()
     {
-        
+        //this.transform.eulerAngles = rotationOffset;
     }
 
     // Update is called once per frame
@@ -22,6 +24,6 @@ public class Facer : MonoBehaviour
 
     private void KeepFacingTheCamera()
     {
-        transform.LookAt(CameraCache.Main.transform.position);
+        transform.LookAt(2 * transform.position - CameraCache.Main.transform.position);
     }
 }

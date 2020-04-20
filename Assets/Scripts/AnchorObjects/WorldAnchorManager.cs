@@ -20,54 +20,143 @@ namespace Scripts.AnchorObjects
         public Dictionary<string, AnchoredGameObject> gameObjectsToSerialize = new Dictionary<string, AnchoredGameObject>();
         public Dictionary<string, GameObject> gos = new Dictionary<string, GameObject>();
 
-        public string fileName = "";
+        public Scripts.LineObjects.CurvedLineRenderer curvedLineRender;
 
+        public string anchorsFileName = "";
+        public string ModelsFileName = "";
         public Mode worldMode = Mode.SetUp;
 
+        WorldAnchorStore was;
         bool loadedFromHub = false;
         bool deletingAnchors = false;
+        GameObject fullModel;
 
         List<string> ids;
         // Start is called before the first frame update
         void Start()
         {
-            if (worldMode == Mode.Operate)
-            {
-                LoadExistingAnchors();
-           }
-
+            WorldAnchorStore.GetAsync(StoreLoaded);
         }
 
-        public void LoadExistingAnchors()
+        private void StoreLoaded(WorldAnchorStore was)
         {
-            AnchoredGameObjects agos = ReadData();
+            // clear line data
+            curvedLineRender.DoNavigationLine(this, new Vector3[0]);
+            this.was = was;
+
+            LoadModels();
+            if (worldMode == Mode.Operate)
+            {
+                //Load Anchors...
+                LoadExistingAnchors();
+            }
+        }
+
+        private void OnTrackingChange(WorldAnchor anchor, bool isLocated)
+        {
+            if (isLocated)
+            {
+                this.DoLocalSave(anchor.name, anchor);
+                anchor.OnTrackingChanged -= OnTrackingChange;
+            }
+        }
+        public void InitiateAnchorLoad()
+        {
+            WorldAnchorStore.GetAsync(StoreLoaded);
+        }
+
+        public void CreateWorldAnchor(GameObject objToAnchor)
+        {
+            WorldAnchor anchor = objToAnchor.GetComponent<WorldAnchor>();
+            if (anchor == null)
+                anchor = objToAnchor.AddComponent<WorldAnchor>();
+            anchor.name = objToAnchor.name;
+            if (anchor.isLocated)
+                this.DoLocalSave(objToAnchor.name, anchor);
+            else
+            {
+                // not enough track data (probably!)....
+                anchor.OnTrackingChanged += OnTrackingChange;
+            }
+        }
+
+        public bool DoLocalSave(string anchorName, WorldAnchor anchor)
+        {
+            if (AnchorExists(anchorName))
+                was.Delete(anchorName);
+            return was.Save(anchorName, anchor);
+        }
+
+        public void DeleteWorldAnchor(string anchorName)
+        {
+            was.Delete(anchorName);
+        }
+
+        /// <summary>
+        /// Load Models instantiates the models defined in the json file [ModelsFileName]
+        /// One of these models is defined as the FULL model and constitutes the parent for the anchors
+        /// Hence that is why the models are loaded prior to loading the anchors...
+        /// </summary>
+        public void LoadModels()
+        {
+
+            //if WINDOWS_UWP      
+            ids = this.was.GetAllIds().ToList<string>();
+            if (deletingAnchors)
+            {
+
+                foreach (string aid in ids)
+                {
+                    DeleteWorldAnchor(aid);
+                }
+                //re get...
+                ids = this.was.GetAllIds().ToList<string>();
+            }
+            //#endif
+
+            AnchoredGameObjects agos = ReadData(this.ModelsFileName);
 
             int id = 0;
+            // set up line points vector...
             foreach (AnchoredGameObject ago in agos.anchorObjects)
             {
-                // get object from json...
 
-                // get parent in scene...
-                GameObject parent = GameObject.Find(ago.ParentName);
-                if (null == parent)
-                    return;
                 // look up the type in the store
                 //create the object
                 // set pos, rot and scale...
-                // GameObject prefab =  UnityEditor.AssetDatabase.LoadAssetAtPath(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
-                go.transform.position = parent.transform.position;
-                go.transform.SetParent(parent.transform);
-                go.name += "_" + id++;
+                go.transform.position = ago.Position;
+                go.name = ago.Name;
                 go.transform.localScale = ago.Scale;
+                go.transform.rotation = new Quaternion(ago.RotateX, ago.RotateY, ago.RotateZ, ago.RotateW);
                 ago.SetScale(go);
                 ago.SetToolTip(go);
+
+                // Set the target for the finite state machine...
+
+                // TODO: sort this real hack..
+                if (ago.Name.ToUpper().Contains("FULL"))
+                {
+                    // find the Finite State Machine and set it's global state target...
+                    GameObject fsm = GameObject.Find("FSMHost");
+                    if (null != fsm)
+                    {
+                        GlobalState gs = fsm.GetComponent<GlobalState>();
+                        if (null != gs)
+                        {
+                            fullModel = go;
+                            gs.target = go;
+                        }
+                    }
+                }
+
+                // Load anchor if running on UWP device and anchor exists...
+                // TODO Add anchor script, NOTE need to set position of anchored object to zero and rotate...
 
                 AnchoredGameObject newAgo = new AnchoredGameObject(go, ago.PrefabSource);
                 newAgo.RunOrder = ago.RunOrder;
                 newAgo.Description = ago.Description;
-                //gameObjectsToSerialize.Add(id, newAgo);
                 gameObjectsToSerialize.Add(go.name, ago);
                 gos.Add(go.name, go);
 
@@ -78,6 +167,96 @@ namespace Scripts.AnchorObjects
                     //go.SetActive(false);
                 }
             }
+
+        }
+
+        public GameObject GetNestedChild(Transform parentTransform, string childName)
+        {
+
+            GameObject nestedChild = null;
+            int childCount = parentTransform.childCount;
+
+            for (int i = 0; i < childCount; i++)
+            {
+                if (parentTransform.GetChild(i).gameObject.name == childName)
+                {
+                    nestedChild = parentTransform.GetChild(i).gameObject;
+                    break;
+                }
+                if (null == nestedChild)
+                    nestedChild = GetNestedChild(parentTransform.GetChild(i), childName);
+            }
+            return nestedChild;
+        }
+
+        public void LoadExistingAnchors()
+        {
+            // need full model to load into
+            if (null == fullModel)
+                return;
+//if WINDOWS_UWP      
+            ids = this.was.GetAllIds().ToList<string>();
+            if (deletingAnchors)
+            {
+
+                foreach (string aid in ids)
+                {
+                    DeleteWorldAnchor(aid);
+                }
+                //re get...
+                ids = this.was.GetAllIds().ToList<string>();
+            }
+            //#endif
+
+            AnchoredGameObjects agos = ReadData(this.anchorsFileName);
+
+            int id = 0;
+            // set up line points vector...
+            Vector3[] linePoints = new Vector3[agos.anchorObjects.Count];
+            foreach (AnchoredGameObject ago in agos.anchorObjects)
+            {
+                // get object from json...
+
+                // get parent in scene...
+                //GameObject parent = GameObject.Find(ago.ParentName);
+                GameObject parent = GetNestedChild(fullModel.transform, ago.ParentName);
+
+                if (null == parent)
+                    return;
+                // look up the type in the store
+                //create the object
+                // set pos, rot and scale...
+                GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
+                GameObject go = GameObject.Instantiate(prefab);
+                go.transform.position = parent.transform.position;
+                go.transform.SetParent(parent.transform);
+                go.name += "_" + id++;
+                go.transform.localScale = ago.Scale;
+                ago.SetScale(go);
+                ago.SetToolTip(go);
+
+                // Load anchor if running on UWP device and anchor exists...
+                // TODO Add anchor script, NOTE need to set position of anchored object to zero and rotate...
+
+                AnchoredGameObject newAgo = new AnchoredGameObject(go, ago.PrefabSource);
+                newAgo.RunOrder = ago.RunOrder;
+                newAgo.Description = ago.Description;
+                gameObjectsToSerialize.Add(go.name, ago);
+                gos.Add(go.name, go);
+
+                // add line point at right location...
+                linePoints[ago.RunOrder] = go.transform.position;
+
+                // Show on load only if we are setup mode only...
+                if (this.worldMode == Mode.Operate)
+                {
+                    Destroy(go.transform.Find("AppBar").gameObject);
+                    //go.SetActive(false);
+                }
+            }
+
+            // need to reload navlines...
+            curvedLineRender.DoNavigationLine(this, linePoints);
         }
 
         public GameObject SetActivateStateForObject(string id2Activate, bool state)
@@ -100,12 +279,12 @@ namespace Scripts.AnchorObjects
             return ids.Contains(id);
         }
 
-        public AnchoredGameObjects ReadData()
+        public AnchoredGameObjects ReadData(string jsonFileRoot)
         {
             AnchoredGameObjects agos = new AnchoredGameObjects();
             string json = string.Empty;
 
-            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.fileName);
+            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, jsonFileRoot);
             if (UnityEngine.Windows.File.Exists(path))
             {
                 byte[] data = UnityEngine.Windows.File.ReadAllBytes(path);
@@ -126,7 +305,7 @@ namespace Scripts.AnchorObjects
             if (goIdx != null)
             {
                 IndexManager idxMgr = goIdx.GetComponent<IndexManager>();
-                idxMgr.AddIndex(this.fileName, "<New Process>", this.instanceID);
+                idxMgr.AddIndex(this.anchorsFileName, "<New Process>", this.instanceID);
                 idxMgr.SaveIndexData();
             }
             var anchorsToDelete = gameObjectsToSerialize.Where(pair => (GameObject.Find(pair.Key) == null)).Select(pair => new { pair.Key, pair.Value }).ToDictionary(pair => pair.Key, pair => pair.Value);
@@ -143,16 +322,13 @@ namespace Scripts.AnchorObjects
             foreach (AnchoredGameObject ago in agos)
                 agoParent.anchorObjects.Add(ago);
 
-            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.fileName);
+            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.anchorsFileName);
 
             string json = JsonConvert.SerializeObject(agoParent, Formatting.Indented);
             byte[] data = Encoding.ASCII.GetBytes(json);
 
             UnityEngine.Windows.File.WriteAllBytes(path, data);
 
-            // string assetPath = string.Format("{0}/_{1}.json", Application.persistentDataPath, this.fileName);
-            //TextAsset jsonAsset = new TextAsset(json);
-            // UnityEditor.AssetDatabase.CreateAsset(jsonAsset, assetPath);
 #endif
         }
 
@@ -165,7 +341,7 @@ namespace Scripts.AnchorObjects
             foreach (AnchoredGameObject ago in agos)
                 agoParent.anchorObjects.Add(ago);
 
-            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.fileName);
+            string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.ModelsFileName);
 
             string json = JsonConvert.SerializeObject(agoParent, Formatting.Indented);
             byte[] data = Encoding.ASCII.GetBytes(json);
