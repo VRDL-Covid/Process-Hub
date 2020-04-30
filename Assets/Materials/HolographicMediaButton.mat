@@ -7,16 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: blue
+  m_Name: HolographicMediaButton
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
-  m_ShaderKeywords: _DIRECTIONAL_LIGHT _DISABLE_ALBEDO_MAP _EMISSION _HOVER_LIGHT
-    _REFLECTIONS _RIM_LIGHT _SPECULAR_HIGHLIGHTS
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 1
+  m_ShaderKeywords: _ALPHABLEND_ON _SPECULAR_HIGHLIGHTS _USECOLOR_ON _USEMAINTEX_ON
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: Opaque
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -50,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4b859b91af27fc44388e711f5a9a7e8e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -90,14 +89,14 @@ Material:
     - _ColorWriteMask: 15
     - _Cull: 2
     - _CullMode: 2
-    - _CustomMode: 0
+    - _CustomMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DirectionalLight: 1
-    - _DstBlend: 0
+    - _DirectionalLight: 0
+    - _DstBlend: 10
     - _EdgeSmoothingValue: 0.002
     - _EnableChannelMap: 0
-    - _EnableEmission: 1
+    - _EnableEmission: 0
     - _EnableHoverColorOverride: 0
     - _EnableLocalSpaceTriplanarMapping: 0
     - _EnableNormalMap: 0
@@ -108,22 +107,17 @@ Material:
     - _FadeBeginDistance: 0.85
     - _FadeCompleteDistance: 0.5
     - _FadeMinValue: 0
-    - _Frequency: 2.05
-    - _GlossMapScale: 1
-    - _Glossiness: 0
-    - _GlossyReflections: 1
-    - _HoverLight: 1
+    - _Glossiness: 0.5
+    - _HoverLight: 0
     - _InnerGlow: 0
     - _InnerGlowPower: 4
     - _InstancedColor: 0
-    - _InvFade: 0.227
     - _Iridescence: 0
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0.5
     - _IridescenceThreshold: 0.05
     - _Metallic: 0
-    - _MinPulseVal: 0.165
-    - _Mode: 0
+    - _Mode: 2
     - _NearLightFade: 0
     - _NearPlaneFade: 0
     - _NormalMapScale: 1
@@ -131,21 +125,19 @@ Material:
     - _Parallax: 0.02
     - _ProximityLight: 0
     - _ProximityLightTwoSided: 0
-    - _Reflections: 1
+    - _Reflections: 0
     - _Refraction: 0
     - _RefractiveIndex: 0
     - _RenderQueueOverride: -1
-    - _RimLight: 1
-    - _RimPower: 2.72
+    - _RimLight: 0
+    - _RimPower: 0.25
     - _RoundCornerMargin: 0.01
     - _RoundCornerRadius: 0.25
     - _RoundCorners: 0
-    - _ScrollingSpeed: 4.77
-    - _Smoothness: 0
-    - _SmoothnessTextureChannel: 0
+    - _Smoothness: 0.5
     - _SpecularHighlights: 1
     - _SphericalHarmonics: 0
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilComparison: 0
@@ -156,26 +148,24 @@ Material:
     - _StencilWriteMask: 255
     - _TriplanarMappingBlendSharpness: 4
     - _UVSec: 0
+    - _UseColor: 1
+    - _UseMainTex: 1
+    - _UseUIAlphaClip: 0
     - _VertexColors: 0
     - _VertexExtrusion: 0
     - _VertexExtrusionValue: 0
-    - _WireThickness: 100
     - _ZOffsetFactor: 0
     - _ZOffsetUnits: 0
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 0.12393127, g: 0.46469808, b: 0.8000001, a: 1}
-    - _EmissionColor: {r: 0.08530616, g: 0.11195204, b: 0.6698113, a: 1}
-    - _EmissiveColor: {r: 0.0032039948, g: 0.03496435, b: 0.6792453, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
     - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
     - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
-    - _GlowColor: {r: 0.8584906, g: 0.434339, b: 0.23891956, a: 1}
     - _HoverColorOverride: {r: 1, g: 1, b: 1, a: 1}
     - _InnerGlowColor: {r: 1, g: 1, b: 1, a: 0.75}
     - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _WireColor: {r: 1, g: 1, b: 1, a: 1}
