@@ -99,20 +99,10 @@ public class IndexManager : ManagerBase
             //create the object
             // set pos, rot and scale...
             // create prefab for preview...
-            
-            //GameObject previewPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath(idx.PrefabModel, typeof(GameObject)) as GameObject;
-            GameObject previewPrefab = Resources.Load(idx.PrefabModel, typeof(GameObject)) as GameObject;
-
             // instantiate a new process prefab...
-            //GameObject processPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath(idx.PrefabSource, typeof(GameObject)) as GameObject;
             GameObject processPrefab = Resources.Load(idx.PrefabSource, typeof(GameObject)) as GameObject;
             GameObject goProcess = GameObject.Instantiate(processPrefab, processContainer.gameObject.transform, false);
-            //float height = goProcess.GetComponent<Collider>().bounds.size.y;
-            //goProcess.transform.position = new Vector3(0.05f, yoffset * -1f * goProcess.transform.localScale.y, -0.002f);
-            //goProcess.transform.position = new Vector3(goProcess.transform.position.x, yoffset * -1f, goProcess.transform.position.z);
-            //yoffset += height;
             goProcess.transform.localScale = idx.Scale;
-            //goProcess.transform.position = new Vector3(goProcess.transform.position.x, goProcess.transform.position.y - yoffset, goProcess.transform.position.z);
             goProcess.transform.localPosition = new Vector3(0f, -yoffset, -0.002f);
             yoffset += height;
 
@@ -124,6 +114,14 @@ public class IndexManager : ManagerBase
             PanelData pd = goProcess.GetComponent<PanelData>();
             pd.Title.text = idx.Name;
             pd.Description.text = idx.Description;
+
+            PrefabData pfd = goProcess.GetComponent<PrefabData>();
+            if (null != pfd)
+            {
+                pfd.modelPrefabPath = idx.PrefabModel;
+                pfd.anchorsFileName = idx.FilePath;
+                pfd.toolTipText = idx.ToolTipText;
+            }
 
             // instantiate a new 
             //GameObject goPreview = GameObject.Instantiate(prefab);

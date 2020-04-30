@@ -12,10 +12,12 @@ namespace Scripts.AnchorObjects
         WorldAnchorManager wam;
 
         public GameObject objToAnchor;
-        // Start is called before the first frame update
+
         void Start()
         {
-            wam = GameObject.Find("WAM").GetComponent<WorldAnchorManager>();
+            GameObject oWAM = GameObject.Find("WAM");
+            if (null != oWAM)
+                wam = oWAM.GetComponent<WorldAnchorManager>();
         }
 
         public void CreateWorldAnchor()
@@ -39,7 +41,8 @@ namespace Scripts.AnchorObjects
 
         public void DeleteWorldAnchor()
         {
-
+            wam.DeleteWorldAnchor(objToAnchor.name);
+            Destroy(objToAnchor.GetComponent<WorldAnchor>());
         }
     }
 }

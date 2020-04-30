@@ -1415,8 +1415,8 @@ MonoBehaviour:
   removeIcon: {fileID: 2800000, guid: 8d0274d8bc6a17844a08b493920d9491, type: 3}
   showIcon: {fileID: 2800000, guid: 0bee624b4074e5445929e56287795085, type: 3}
   useTightFollow: 0
-  hoverOffsetYScale: 0.25
-  hoverOffsetZ: 0.92
+  hoverOffsetYScale: 0
+  hoverOffsetZ: 0.1
   buttonWidth: 0.032
   buttonDepth: 0.016
 --- !u!114 &4207056213714574348
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819644391072827752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aca87582bbf9b0d4cba5ddbd5c31055d, type: 3}
   m_Name: 
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033754699134822435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23f9be7a3cb53794ead8b55e784b65aa, type: 3}
   m_Name: 
@@ -1701,6 +1701,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPath: ProcessPrefabs/Lagging
+  modelPrefabPath: 
+  anchorsFileName: 
+  toolTipText: 
+  modelOffset: {x: 1, y: -1, z: 0}
 --- !u!114 &8003122955631942282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,7 +1712,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033754699134822435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03daa81ea5f685f4ebf6e32038d058ca, type: 3}
   m_Name: 
@@ -1794,9 +1798,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3bbc4287afaf84aa71cf329ba97b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  operatingMode: 0
-  removeGameObjectInMode: []
-  disableComponentInMode: []
+  modeToRemoveObjectsIn: 1
+  overrideMode: 1
+  removeGameObjectInMode:
+  - {fileID: 1819644391072827752}
+  disableComponentInMode:
+  - {fileID: 272203690614315438}
 --- !u!1 &2164382728247739820
 GameObject:
   m_ObjectHideFlags: 0

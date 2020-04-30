@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 //using Microsoft.MixedReality.Toolkit.SpatialAwareness;
 
 namespace Scripts.SpatialAwareness
@@ -8,31 +9,60 @@ namespace Scripts.SpatialAwareness
     public class Dimensionizer : MonoBehaviour
     {
         [Range(0, 2)]
-        [Tooltip("Select thedimension this is assigned to, x == 0, y == 1, z==2")]
+        [Tooltip("Select the dimension this is assigned to, x == 0, y == 1, z==2")]
         public int dimChooser;
         public GameObject dimension, midpoint;
         public Color lengthTextFaceColor = new Color(1, 1, 1);
         public string shaderColProperty = "_FaceColor";
+
+        [Header("Tooltip Text boxes")]
         public TMPro.TextMeshPro lengthTextBox;
         public TMPro.TextMeshPro lengthRayCastTextBox;
+        public TMPro.TextMeshPro angleRayCastTextBox;
         //public Microsoft.MixedReality.Toolkit.SpatialAwareness.BaseSpatialObserver observer;
-
+        
         [Tooltip("Used to multiply the length of the axis line, only select one! (1 == 1m)")]
         public Vector3 scalerSource = new Vector3(0, 0, 0);
+
+        public float axisAngleTolerance = 0.5f;
 
         [Tooltip("Current raycast length in metres long primary axis")]
         public float rayCastLengthMetres = 5;
 
         public Vector3 directionToCast = new Vector3(0, 0, 0);
 
-        private Vector3[] castdirs = new Vector3[3];
+        public float angleFound = 0f;
+        public float angleRequired = 90f;
 
         public float updateIntervalSecs = 2.5f;
+
+        public bool ForceCreateObject = false;
+
         public int missedCountMax = 3;
+
+        [HideInInspector]
+        public GameObject currentHitObject = null;
+
+        public GameObject hitObject;
+
+        //[HideInInspector]
+        [Header("State Attributes")]
+        public bool isRecognising = false;
+        public bool isInAngleTolerance = false;
+        public bool isInDistanceTolerance = false;
+
+        //public Lin
 
         int layerMask = 1;
         int missedCount = 0;
-        Vector3 dirToCast = new Vector3(0, 0, 0);
+        public Vector3 dirToCast = new Vector3(0, 0, 0);
+        private Vector3[] castdirs = new Vector3[3];
+
+        public float AngleError
+        {
+            get { return angleRequired - angleFound; }
+        }
+
         void Start()
         {
             if (null == dimension)
@@ -47,6 +77,9 @@ namespace Scripts.SpatialAwareness
 
             lengthRayCastTextBox.text = string.Format("Looking for {0:0.00}m", scalerSource[dimChooser]);
             lengthRayCastTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
+
+            angleRayCastTextBox.text = string.Format("Looking for {0:0.00}°", angleRequired);
+            angleRayCastTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
 
             // Raycast against all game objects that are on either the
             // spatial surface or UI layers.
@@ -75,17 +108,77 @@ namespace Scripts.SpatialAwareness
                 RaycastHit hit;
                 if (Physics.Raycast(dimension.transform.position, dirToCast, out hit, rayCastLengthMetres, layerMask))
                 {
+                    if (ForceCreateObject)
+                    {
+                        ForceCreateObject = false;
+                        if (null != hitObject)
+                            GameObject.Destroy(hitObject);
+                        GameObject bullseye = Resources.Load("ProcessPrefabs/SupportingPrefabs/SpatialMarkers/bullseye") as GameObject;
+                        Quaternion rotPos = Quaternion.Euler(hit.normal);
+                        hitObject = GameObject.Instantiate(bullseye);
+                        hitObject.transform.position = hit.point;// + (hit.normal * 0.1f);
+                        hitObject.transform.rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
+                        DrawLine(hit.point, hit.point + hit.normal, Color.white, 60);
+                    }
+
+                    Vector3 hitNorm = hit.normal;
+                    currentHitObject = hit.transform.gameObject;
+                    isRecognising = true;
                     lengthRayCastTextBox.text = string.Format("Hit at: {0:0.00}m", hit.distance);
                     missedCount = 0;
+                    Debug.DrawRay(dimension.transform.position, dirToCast, lengthTextFaceColor, updateIntervalSecs, true);
+
+                    float cosine = Vector3.Dot(dirToCast, hit.normal);
+                    angleFound = Mathf.Rad2Deg * Mathf.Acos(cosine) - 90f;
+                    angleRayCastTextBox.text = string.Format("Hit °: {0:0.00}° (diff: {1:0.00}° ", angleFound, angleRequired - angleFound);
+
+                    isInAngleTolerance = Mathf.Abs(angleRequired - angleFound) <= axisAngleTolerance;
+
+                    DrawLine(hit.point, hit.point + hitNorm/*directionToCast*/, lengthTextFaceColor, 5);
                 }
-                /*else if (missedCount++ < missedCountMax)
+                else
+                {
+                    currentHitObject = null;
+                    isRecognising = false;
+                    isInAngleTolerance = false;
+                    isInDistanceTolerance = false;
+                }
+                
+                /*if (missedCount++ < missedCountMax)
                     missedCount++;
                 else if((missedCount >= missedCountMax))
                     lengthRayCastTextBox.text = string.Format("Looking for {0:0.00}m", scalerSource[dimChooser]);*/
 
-                Debug.DrawRay(dimension.transform.position, dirToCast, lengthTextFaceColor, updateIntervalSecs, true);
+
+
+                // Calculate the normal angle to the collided surface...
+                /*Vector3 outGoingVec = dimension.transform.position - hit.point;
+                Vector3 reflectedVec = Vector3.Reflect(outGoingVec, hit.normal);
+
+                Debug.DrawRay(dimension.transform.position, hit.point, Color.white, updateIntervalSecs, true);
+                Debug.DrawRay(hit.point, reflectedVec, Color.yellow, updateIntervalSecs, true);
+                */
                 yield return wait;
             }
+        }
+
+        void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
+        {
+            //Material material = new Material(Shader.Find("Standard"));
+            //material.color = color;
+
+            GameObject myLine = new GameObject();
+            myLine.transform.position = start;
+            myLine.AddComponent<LineRenderer>();
+            LineRenderer lr = myLine.GetComponent<LineRenderer>();
+            lr.material = new Material(Shader.Find("Sprites/Default"));
+            lr.widthMultiplier = 0.02f;
+            lr.startColor = color ;
+            lr.endColor = color ;
+            lr.positionCount = 2;
+            lr.SetPosition(0, start);
+            lr.SetPosition(1, end);
+            GameObject.Destroy(myLine, duration);
         }
     }
 }

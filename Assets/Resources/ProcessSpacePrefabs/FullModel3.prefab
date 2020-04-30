@@ -3113,7 +3113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9078330505248228550}
   - component: {fileID: 6865357356278911061}
-  - component: {fileID: 3878030069444553285}
   m_Layer: 0
   m_Name: AppBar
   m_TagString: NotSerialised
@@ -3129,8 +3128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2564050540708652942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3358383, y: -0.23006621, z: 3.4287283}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.78005, y: 4.78005, z: 4.78005}
   m_Children:
   - {fileID: 2812745566784889622}
   m_Father: {fileID: 5912022574007922951}
@@ -3162,30 +3161,11 @@ MonoBehaviour:
   hideIcon: {fileID: 2800000, guid: d74cdc58c5d172a469ea5ca987eb17f6, type: 3}
   removeIcon: {fileID: 2800000, guid: 8d0274d8bc6a17844a08b493920d9491, type: 3}
   showIcon: {fileID: 2800000, guid: 0bee624b4074e5445929e56287795085, type: 3}
-  useTightFollow: 0
-  hoverOffsetYScale: 0.25
-  hoverOffsetZ: 7.5
+  useTightFollow: 1
+  hoverOffsetYScale: 0
+  hoverOffsetZ: 0.1
   buttonWidth: 0.032
   buttonDepth: 0.016
---- !u!114 &3878030069444553285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564050540708652942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca87582bbf9b0d4cba5ddbd5c31055d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  interactable: {fileID: 0}
-  primaryLabels: []
-  seeItSayItLabel: {fileID: 0}
-  icon: {fileID: 0}
-  buttonType: 0
-  displayOrder: 0
 --- !u!1 &2690915113785570620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,7 +3546,7 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 1}
   endPoint:
-    position: {x: -0.4456972, y: 1.2425371, z: 0.1763325}
+    position: {x: -0.4456972, y: 1.2425371, z: 0.17633249}
     rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &3934026965711664422
 MonoBehaviour:
@@ -3711,8 +3691,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -0.15028447, y: 0.11, z: 0.5799265}
-  - {x: -0.44578362, y: 1.2425371, z: 0.17611387}
+  - {x: -0.15, y: 0.11, z: 0.58}
+  - {x: -0.4456972, y: 1.2425371, z: 0.17633249}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.01
@@ -4768,7 +4748,7 @@ Transform:
   m_GameObject: {fileID: 4814304646325593865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.001}
-  m_LocalScale: {x: 0.15333194, y: 0.03495355, z: 1}
+  m_LocalScale: {x: 0.15333192, y: 0.03495355, z: 1}
   m_Children: []
   m_Father: {fileID: 865073580861709014}
   m_RootOrder: 1
@@ -5295,7 +5275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5415644420494122951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.11, z: 0.58000004}
+  m_LocalPosition: {x: -0.15, y: 0.11, z: 0.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4820456225145534940}
@@ -5361,7 +5341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5853331687787180161}
-  m_LocalRotation: {x: 0, y: -0.00024523996, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5371,7 +5351,7 @@ Transform:
   - {fileID: 9078330505248228550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1226693442363089503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5385,7 +5365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 5853331687787180161}
-  boundsOverride: {fileID: 0}
+  boundsOverride: {fileID: 5309026648429495747}
   activation: 4
   scaleMaximum: 50
   scaleMinimum: 0.2
@@ -5393,10 +5373,10 @@ MonoBehaviour:
   boxPadding: {x: 0, y: 0, z: 0}
   boxMaterial: {fileID: 2100000, guid: 4a9aae3094118f44593e7f8000e24c31, type: 2}
   boxGrabbedMaterial: {fileID: 2100000, guid: 7e4095c5609075846b657c8917aae797, type: 2}
-  showWireframe: 0
-  wireframeShape: 0
+  showWireframe: 1
+  wireframeShape: 1
   wireframeMaterial: {fileID: 0}
-  wireframeEdgeRadius: 0.005
+  wireframeEdgeRadius: 0.04
   handleMaterial: {fileID: 2100000, guid: 986558eab447a9847bbe138149edc1b4, type: 2}
   handleGrabbedMaterial: {fileID: 2100000, guid: bf37b5eab60b288498d02fd524325d10,
     type: 2}
@@ -5404,9 +5384,9 @@ MonoBehaviour:
     type: 3}
   scaleHandleSlatePrefab: {fileID: 1134031327877807717, guid: c45e552a6d92491468c421c35c5dd63d,
     type: 3}
-  scaleHandleSize: 0.02
+  scaleHandleSize: 0.4
   rotationHandlePrefab: {fileID: 100000, guid: 57c53da2552a8114ab6d68e0cd31b1eb, type: 3}
-  rotationHandleDiameter: 0.035
+  rotationHandleDiameter: 1
   showScaleHandles: 1
   showRotationHandleForX: 1
   showRotationHandleForY: 1
@@ -5664,6 +5644,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPath: ProcessPrefabs/
+  modelPrefabPath: 
+  anchorsFileName: 
+  toolTipText: 
+  modelOffset: {x: 0, y: -0.5, z: 0}
 --- !u!114 &8796961538558266379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5677,6 +5661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modeToRemoveObjectsIn: 1
+  overrideMode: 0
   removeGameObjectInMode:
   - {fileID: 2768941466382861293}
   - {fileID: 2564050540708652942}

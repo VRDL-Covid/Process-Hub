@@ -90,6 +90,8 @@ namespace Scripts.AnchorObjects
         public void DeleteWorldAnchor(string anchorName)
         {
             was.Delete(anchorName);
+            if (this.gameObjectsToSerialize.ContainsKey(anchorName))
+                gameObjectsToSerialize.Remove(anchorName);
         }
 
         /// <summary>
@@ -126,13 +128,30 @@ namespace Scripts.AnchorObjects
                 // set pos, rot and scale...
                 GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
-                go.transform.position = ago.Position;
+                
                 go.name = ago.Name;
+                // switched off as sorted by anchor...
+                
+                go.transform.position = ago.Position;
                 go.transform.localScale = ago.Scale;
                 go.transform.rotation = new Quaternion(ago.RotateX, ago.RotateY, ago.RotateZ, ago.RotateW);
                 ago.SetScale(go);
+
+                // set the transform for speech control...
+                GameObject aspectTxfr = GameObject.Find("AspectTransformer");
+                if (null != aspectTxfr)
+                {
+                    AspectTransformer compAspectTxformer = aspectTxfr.GetComponent<AspectTransformer>();
+                    if (null != compAspectTxformer)
+                    {
+                        compAspectTxformer.targetTransform = go.transform;
+                    }
+                }
+                
                 ago.SetToolTip(go);
 
+                // time to anchor this object if one exists...
+                was.Load(go.name, go);
                 // Set the target for the finite state machine...
 
                 // TODO: sort this real hack..
@@ -170,7 +189,7 @@ namespace Scripts.AnchorObjects
 
         }
 
-        public GameObject GetNestedChild(Transform parentTransform, string childName)
+        public static GameObject GetNestedChild(Transform parentTransform, string childName)
         {
 
             GameObject nestedChild = null;
@@ -208,7 +227,7 @@ namespace Scripts.AnchorObjects
             }
             //#endif
 
-            AnchoredGameObjects agos = ReadData(this.anchorsFileName);
+            AnchoredGameObjects agos = WorldAnchorManager.ReadData(this.anchorsFileName);
 
             int id = 0;
             // set up line points vector...
@@ -219,7 +238,7 @@ namespace Scripts.AnchorObjects
 
                 // get parent in scene...
                 //GameObject parent = GameObject.Find(ago.ParentName);
-                GameObject parent = GetNestedChild(fullModel.transform, ago.ParentName);
+                GameObject parent = WorldAnchorManager.GetNestedChild(fullModel.transform, ago.ParentName);
 
                 if (null == parent)
                     return;
@@ -228,11 +247,13 @@ namespace Scripts.AnchorObjects
                 // set pos, rot and scale...
                 GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
+                go.name += "_" + id++;
+                
                 go.transform.position = parent.transform.position;
                 go.transform.SetParent(parent.transform);
-                go.name += "_" + id++;
                 go.transform.localScale = ago.Scale;
                 ago.SetScale(go);
+
                 ago.SetToolTip(go);
 
                 // Load anchor if running on UWP device and anchor exists...
@@ -279,7 +300,7 @@ namespace Scripts.AnchorObjects
             return ids.Contains(id);
         }
 
-        public AnchoredGameObjects ReadData(string jsonFileRoot)
+        public static AnchoredGameObjects ReadData(string jsonFileRoot)
         {
             AnchoredGameObjects agos = new AnchoredGameObjects();
             string json = string.Empty;

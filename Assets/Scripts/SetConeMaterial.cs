@@ -6,6 +6,13 @@ public class SetConeMaterial : MonoBehaviour
 {
     public GameObject markerCone;
 
+    public Material material;
+
+    private void Start()
+    {
+        ConeMaterial = material;
+    }
+
     public Material ConeMaterial
     {
         set
