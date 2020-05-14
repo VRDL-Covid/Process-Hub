@@ -15,6 +15,10 @@
     {
       "Name": "Observation Check",
       "Index": 3
+    },
+    {
+      "Name": "Anchor",
+      "Index": 4
     }
   ],
   "holograms": [

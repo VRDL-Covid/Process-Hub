@@ -624,7 +624,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabPath: ProcessPrefabs/Process
   modelPrefabPath: 
+  anchorsFileName: 
+  toolTipText: 
   modelOffset: {x: 0.5, y: 0, z: 1}
+  lineArrayPosition: -1
+  addAnchor: {fileID: 0}
+  deleteAnchor: {fileID: 0}
 --- !u!114 &5878742144283171135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2260,7 +2265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5163bcc60302e164aa5b76b3eb858553, type: 2}
+  - {fileID: 2100000, guid: 6c9ee60b99415b54fa7323bb5d6b4ce2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2606,7 +2611,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5163bcc60302e164aa5b76b3eb858553, type: 2}
+  - {fileID: 2100000, guid: a67fc7bf017ac394c84976cd65ad3373, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
