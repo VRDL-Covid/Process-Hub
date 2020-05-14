@@ -15,13 +15,13 @@ MonoBehaviour:
   isCustomProfile: 1
   startupBehavior: 0
   isStationaryObserver: 0
-  observationExtents: {x: 3, y: 3, z: 3}
+  observationExtents: {x: 2, y: 2, z: 2}
   observerVolumeType: 1
   updateInterval: 3.5
   meshPhysicsLayer: 31
   levelOfDetail: 0
   trianglesPerCubicMeter: 0
   recalculateNormals: 1
-  displayOption: 0
+  displayOption: 1
   visibleMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   occlusionMaterial: {fileID: 2100000, guid: a809c7ea182b699409443d46d5b42435, type: 2}
