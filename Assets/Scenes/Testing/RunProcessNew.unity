@@ -3415,6 +3415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914514000}
   - component: {fileID: 1914513999}
+  - component: {fileID: 1914514001}
   m_Layer: 0
   m_Name: WAM
   m_TagString: Untagged
@@ -3429,16 +3430,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914513998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2704074b3acb7fd43b47564d646214e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceID: 0
   curvedLineRender: {fileID: 1021174294}
   anchorsFileName: anchordata_burlington
   ModelsFileName: modelAnchorData
   worldMode: 1
+  instanceID: 0
 --- !u!4 &1914514000
 Transform:
   m_ObjectHideFlags: 0
@@ -3453,6 +3454,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914514001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914513998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8dee08d1b9aeb42b8812bac6ead544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curvedLineRender: {fileID: 1021174294}
+  anchorsFileName: 
+  ModelsFileName: 
+  worldMode: 1
+  instanceID: 0
+  linePoints: []
 --- !u!1 &1914923153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,7 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00444dd2c1372f946b4b185f9761d183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wam: {fileID: 1914513999}
+  wam: {fileID: 0}
   currentProcessStep: 0
   stepIndex: 0
   orderToInspect: 

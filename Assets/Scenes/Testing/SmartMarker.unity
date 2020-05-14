@@ -4712,25 +4712,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec71c20c02ab6c4cb37d9869253aece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimChooser: 0
-  dimension: {fileID: 1635051154}
-  midpoint: {fileID: 73627917}
-  lengthTextFaceColor: {r: 0.8301887, g: 0.19882011, b: 0.16055535, a: 1}
-  shaderColProperty: _FaceColor
   lengthTextBox: {fileID: 224363877}
   lengthRayCastTextBox: {fileID: 1491022597}
   angleRayCastTextBox: {fileID: 90077737}
+  dimChooser: 0
+  dimension: {fileID: 1635051154}
+  lengthTextFaceColor: {r: 0.8301887, g: 0.19882011, b: 0.16055535, a: 1}
+  shaderColProperty: _FaceColor
   scalerSource: {x: 0.8, y: 1, z: 1}
   axisAngleTolerance: 0.5
+  axisDistanceTolerance: 0.1
   rayCastLengthMetres: 5
   directionToCast: {x: 1, y: 0, z: 0}
   angleFound: 0
   angleRequired: 90
+  distance: 0
   updateIntervalSecs: 2.5
   ForceCreateObject: 0
+  signChangedCount: 0
+  tolInc: 0.1
+  enableTolIncrement: 0
   missedCountMax: 3
-  currentHitObject: {fileID: 0}
+  enmAngSign: 0
+  enmPrevAngSign: 0
   hitObject: {fileID: 0}
+  hitNormal: {x: 0, y: 0, z: 0}
   isRecognising: 0
   isInAngleTolerance: 0
   isInDistanceTolerance: 0
@@ -6627,25 +6633,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec71c20c02ab6c4cb37d9869253aece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimChooser: 1
-  dimension: {fileID: 266282843}
-  midpoint: {fileID: 1794456559}
-  lengthTextFaceColor: {r: 0.1954432, g: 0.6792453, b: 0.25748464, a: 1}
-  shaderColProperty: _FaceColor
   lengthTextBox: {fileID: 428428567}
   lengthRayCastTextBox: {fileID: 164442101}
   angleRayCastTextBox: {fileID: 245909584}
+  dimChooser: 1
+  dimension: {fileID: 266282843}
+  lengthTextFaceColor: {r: 0.1954432, g: 0.6792453, b: 0.25748464, a: 1}
+  shaderColProperty: _FaceColor
   scalerSource: {x: 1, y: 0.6, z: 1}
   axisAngleTolerance: 0.5
+  axisDistanceTolerance: 0.1
   rayCastLengthMetres: 5
   directionToCast: {x: 0, y: 1, z: 0}
   angleFound: 0
   angleRequired: 90
+  distance: 0
   updateIntervalSecs: 2.5
   ForceCreateObject: 0
+  signChangedCount: 0
+  tolInc: 0.1
+  enableTolIncrement: 0
   missedCountMax: 3
-  currentHitObject: {fileID: 0}
+  enmAngSign: 0
+  enmPrevAngSign: 0
   hitObject: {fileID: 0}
+  hitNormal: {x: 0, y: 0, z: 0}
   isRecognising: 0
   isInAngleTolerance: 0
   isInDistanceTolerance: 0
@@ -7978,25 +7990,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec71c20c02ab6c4cb37d9869253aece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimChooser: 2
-  dimension: {fileID: 180069063}
-  midpoint: {fileID: 1294415042}
-  lengthTextFaceColor: {r: 0.4000979, g: 0.41669402, b: 0.764151, a: 1}
-  shaderColProperty: _FaceColor
   lengthTextBox: {fileID: 1495730975}
   lengthRayCastTextBox: {fileID: 143550966}
   angleRayCastTextBox: {fileID: 1262524057}
+  dimChooser: 2
+  dimension: {fileID: 180069063}
+  lengthTextFaceColor: {r: 0.4000979, g: 0.41669402, b: 0.764151, a: 1}
+  shaderColProperty: _FaceColor
   scalerSource: {x: 1, y: 1, z: 0.4}
   axisAngleTolerance: 0.5
+  axisDistanceTolerance: 0.1
   rayCastLengthMetres: 5
   directionToCast: {x: 0, y: 0, z: 1}
   angleFound: 0
   angleRequired: 90
+  distance: 0
   updateIntervalSecs: 2.5
   ForceCreateObject: 0
+  signChangedCount: 0
+  tolInc: 0.1
+  enableTolIncrement: 0
   missedCountMax: 3
-  currentHitObject: {fileID: 0}
+  enmAngSign: 0
+  enmPrevAngSign: 0
   hitObject: {fileID: 0}
+  hitNormal: {x: 0, y: 0, z: 0}
   isRecognising: 0
   isInAngleTolerance: 0
   isInDistanceTolerance: 0
@@ -16328,11 +16346,27 @@ MonoBehaviour:
   isValidConfiguration: 0
   isReady: 0
   isInAngleTolerance: 0
-  axisAngleToleranceDeg: 2
-  targetTransform: {fileID: 798618178}
-  rotationSpeed: 0.29
   enableSmartPositioning: 0
-  meshMat: {fileID: 2100000, guid: 3f29d14d8148f1a47944e17be8b1c02d, type: 2}
+  locState: 0
+  parent: {fileID: 798618178}
+  target: {fileID: 0}
+  rotationSpeed: 0.29
+  xAngle: 15
+  yAngle: 30
+  zAngle: 12.5
+  limit: 0.1
+  axesRotatePoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  intX: 0
+  intY: 0
+  intZ: 0
+  stackLimit: 3
+  messages: {fileID: 0}
+  parentDestination: {x: 0, y: 0, z: 0}
+  hitNormal: {x: 0, y: 0, z: 0}
+  signChangeMax: 5
 --- !u!1 &2138824509
 GameObject:
   m_ObjectHideFlags: 0
