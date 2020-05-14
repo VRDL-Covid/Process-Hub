@@ -9,7 +9,7 @@ namespace Scripts.AnchorObjects
 {
     public class AnchorClient : MonoBehaviour
     {
-        WorldAnchorManager wam;
+        WorldAnchorManagerBlender wam;
 
         public GameObject objToAnchor;
 
@@ -17,7 +17,7 @@ namespace Scripts.AnchorObjects
         {
             GameObject oWAM = GameObject.Find("WAM");
             if (null != oWAM)
-                wam = oWAM.GetComponent<WorldAnchorManager>();
+                wam = oWAM.GetComponent<WorldAnchorManagerBlender>();
         }
 
         public void CreateWorldAnchor()

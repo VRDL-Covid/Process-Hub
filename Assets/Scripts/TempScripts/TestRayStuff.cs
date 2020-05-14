@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Scripts.SpatialAwareness
+namespace Scripts.TestStuff
 {
-    public class Dimensionizer : MonoBehaviour
+    public class TestRayStuff : MonoBehaviour
     {
         public enum ERROR_ANGLE_SIGN
         {
@@ -13,11 +13,6 @@ namespace Scripts.SpatialAwareness
             NOT_SET = 0,
             NEGATIVE = 1
         }
-
-        [Header("Tooltip Text boxes")]
-        public TMPro.TextMeshPro lengthTextBox;
-        public TMPro.TextMeshPro lengthRayCastTextBox;
-        public TMPro.TextMeshPro angleRayCastTextBox;
 
         [Range(0, 2)]
         [Tooltip("Select the dimension this is assigned to, x == 0, y == 1, z==2")]
@@ -81,16 +76,7 @@ namespace Scripts.SpatialAwareness
                 dimension = gameObject.transform.GetChild(0).gameObject;
 
             dimension.transform.localScale = scalerSource;
-            lengthTextBox.text = string.Format("{0:0.00}m", scalerSource[dimChooser]);
-            lengthTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
-
-            lengthRayCastTextBox.text = string.Format("Looking for {0:0.00}m", scalerSource[dimChooser]);
-            lengthRayCastTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
-
-            angleRayCastTextBox.text = string.Format("Looking for {0:0.00}°", angleRequired);
-            angleRayCastTextBox.renderer.material.SetColor(shaderColProperty, lengthTextFaceColor);
-
-            layerMask = 1 << LayerMask.NameToLayer("SpatialSurface");
+            layerMask = 1 << LayerMask.NameToLayer("Wall");
             StartCoroutine(CheckCollision());
         }
 
@@ -133,9 +119,6 @@ namespace Scripts.SpatialAwareness
 
                     Vector3 hitNorm = hit.normal;
                     isRecognising = true;
-
-                    lengthRayCastTextBox.text = string.Format("Hit at: {0:0.00}m", hit.distance);
-
                     missedCount = 0;
                     Debug.DrawRay(dimension.transform.position, dirToCast, lengthTextFaceColor, updateIntervalSecs, true);
 
@@ -157,13 +140,12 @@ namespace Scripts.SpatialAwareness
                     float cosine = Mathf.Clamp(Vector3.Dot(dirToCast, hit.normal), -1, 1);
 
                     angleFound = Mathf.Rad2Deg * Mathf.Acos(cosine) - 90f;
-                    angleRayCastTextBox.text = string.Format("Hit °: {0:0.00}° (diff: {1:0.00}° ", angleFound, angleRequired - angleFound);
                     isInAngleTolerance = Mathf.Abs(angleRequired - angleFound) <= axisAngleTolerance;
 
                     distance = hit.distance - scalerSource[dimChooser];
                     isInDistanceTolerance = Mathf.Abs(distance) <= axisDistanceTolerance;
 
-                    //DrawLine(hit.point, hit.point + (hitNorm * 20), lengthTextFaceColor, 5, $"Normal for dim {dimChooser}");
+                    DrawLine(hit.point, hit.point + (hitNorm * 20), lengthTextFaceColor, 5, $"Normal for dim {dimChooser}");
                 }
                 else
                 {

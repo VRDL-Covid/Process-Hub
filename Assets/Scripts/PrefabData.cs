@@ -7,6 +7,10 @@ using Microsoft.MixedReality.Toolkit.UI;
 [ExecuteInEditMode]
 public class PrefabData : MonoBehaviour
 {
+    public delegate void SetLinePos(int arrayPos, Vector3 position);
+
+    public SetLinePos cbSetLinePosition;
+
     [Tooltip("Set this to the relative path to the prefab in the resources folder omit the extension.")]
     public string prefabPath = "";
 
@@ -18,6 +22,11 @@ public class PrefabData : MonoBehaviour
     public string toolTipText;
     [Tooltip("Vector offset from main camera")]
     public Vector3 modelOffset = new Vector3(0, -0.5f, 0);
+
+    [HideInInspector]
+    public int lineArrayPosition = -1;
+
+    public GameObject addAnchor, deleteAnchor;
 
     GameObject modelPrefab;
 
@@ -38,6 +47,20 @@ public class PrefabData : MonoBehaviour
                     ttip.ToolTipText = toolTipText;
             }
         }
+    }
+
+    public void DoLinePosUpdate()
+    {
+        if (null != cbSetLinePosition)
+            cbSetLinePosition(lineArrayPosition, this.transform.position);
+    }
+
+    public void SetAppBarAnchorButtonVisibility(bool isVisible)
+    {
+        if (null != addAnchor)
+            addAnchor.SetActive(isVisible);
+        if (null != deleteAnchor)
+            deleteAnchor.SetActive(isVisible);
     }
 
     public void LoadExistingAnchors(Transform trans)

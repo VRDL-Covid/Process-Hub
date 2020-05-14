@@ -19,7 +19,7 @@ public class Creator : MonoBehaviour
     public Vector3 startPosition;
     public float scale = 1.0f;
     public int selectedModelIndex = 0;
-    public WorldAnchorManager wam;
+    public ManagerBase wam;
    [HideInInspector]
     public enum ModelToLoad
     {

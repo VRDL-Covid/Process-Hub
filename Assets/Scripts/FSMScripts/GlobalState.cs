@@ -11,7 +11,7 @@ using Scripts.AnchorObjects;
 public class GlobalState : MonoBehaviour
 {
     // used to store the state for the entire process...
-    public WorldAnchorManager wam;
+    public WorldAnchorManagerBlender wam;
     [HideInInspector]
     public List<AnchoredGameObject> orderedList;
     [HideInInspector]
@@ -50,7 +50,7 @@ public class GlobalState : MonoBehaviour
     public void Initialise()
     {
          if (wam == null)
-            wam = GameObject.Find("WAM").GetComponent<WorldAnchorManager>();
+            wam = GameObject.Find("WAM").GetComponent<WorldAnchorManagerBlender>();
 #if WINDOWS_UWP
          stepIndicator = CameraCache.Main.transform.GetComponentInChildren<StepIndicator>();
 #else

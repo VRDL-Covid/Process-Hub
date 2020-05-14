@@ -15,8 +15,12 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 //#endif
 namespace Scripts.AnchorObjects
 {
-    public class WorldAnchorManager : ManagerBase
+    public class WorldAnchorManagerBlender : ManagerBase
     {
+        public Dictionary<string, GameObject> gos = new Dictionary<string, GameObject>();
+
+        public Vector3[] linePoints = null;
+
         WorldAnchorStore was;
         bool loadedFromHub = false;
         bool deletingAnchors = false;
@@ -26,7 +30,6 @@ namespace Scripts.AnchorObjects
         // Start is called before the first frame update
         void Start()
         {
-            this.anchorsFileName = PlayerPrefs.GetString("jsonfilename");
             WorldAnchorStore.GetAsync(StoreLoaded);
         }
 
@@ -57,6 +60,7 @@ namespace Scripts.AnchorObjects
             if (anchor == null)
                 anchor = objToAnchor.AddComponent<WorldAnchor>();
             anchor.name = objToAnchor.name;
+            anchor.transform.rotation = objToAnchor.transform.rotation;
             if (anchor.isLocated)
                 this.DoLocalSave(objToAnchor.name, anchor);
             else
@@ -195,48 +199,42 @@ namespace Scripts.AnchorObjects
         }
 
         public void LoadExistingAnchors()
-        {
-            // need full model to load into
-            if (null == fullModel)
-                return;
-//if WINDOWS_UWP      
+        {    
             ids = this.was.GetAllIds().ToList<string>();
-            if (deletingAnchors)
-            {
 
-                foreach (string aid in ids)
-                {
-                    DeleteWorldAnchor(aid);
-                }
-                //re get...
-                ids = this.was.GetAllIds().ToList<string>();
-            }
-            //#endif
-
+            //need to get the anchor component as it is the parent to all the other objects...
             AnchoredGameObjects agos = WorldAnchorManager.ReadData(this.anchorsFileName);
+            AnchoredGameObject agoParent = agos.anchorObjects.FirstOrDefault(ago => ago.Category.ToLower() == "anchor");
+            agos.anchorObjects.Remove(agos.anchorObjects.FirstOrDefault(ago => ago.Category.ToLower() == "anchor"));
+
+            if (null == agoParent)
+                return;
+            //ensure ordered by run order...
+            agos.anchorObjects = agos.anchorObjects.OrderBy(ago => ago.RunOrder).ToList(); ;
 
             int id = 0;
             // set up line points vector...
-            Vector3[] linePoints = new Vector3[agos.anchorObjects.Count];
+            linePoints = new Vector3[agos.anchorObjects.Count];
+            int linePos  = 0;
+            // Instantiate the parent....
+            GameObject anchorGo = GameObject.Instantiate(Resources.Load(agoParent.PrefabSource, typeof(GameObject)) as GameObject);
+            anchorGo.transform.localScale = agoParent.Scale;
+            agoParent.SetToolTip(anchorGo);
+            anchorGo.transform.position = agoParent.Position;
+            anchorGo.name = "waypoint_anchor";
+
+            gameObjectsToSerialize.Add(anchorGo.name, agoParent);
+
             foreach (AnchoredGameObject ago in agos.anchorObjects)
             {
-                // get object from json...
 
-                // get parent in scene...
-                //GameObject parent = GameObject.Find(ago.ParentName);
-                GameObject parent = WorldAnchorManager.GetNestedChild(fullModel.transform, ago.ParentName);
-
-                if (null == parent)
-                    return;
-                // look up the type in the store
-                //create the object
                 // set pos, rot and scale...
                 GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
-                go.name += "_" + id++;
-                
-                go.transform.position = parent.transform.position;
-                go.transform.SetParent(parent.transform);
+                go.name = "waypoint_" + id++;
+
+                go.transform.position = ago.Position;
+                go.transform.SetParent(anchorGo.transform);
                 go.transform.localScale = ago.Scale;
                 ago.SetScale(go);
 
@@ -252,17 +250,41 @@ namespace Scripts.AnchorObjects
                 gos.Add(go.name, go);
 
                 // add line point at right location...
-                linePoints[ago.RunOrder] = go.transform.position;
+                linePoints[linePos++] = go.transform.position;
+
+                PrefabData pd = go.GetComponent<PrefabData>();
+                if (null != pd)
+                {
+                    // need this to reorder the line renderer....
+                    pd.lineArrayPosition = ago.RunOrder;
+                    pd.SetAppBarAnchorButtonVisibility(false);
+                    pd.cbSetLinePosition = RedoLine;
+                }
 
                 // Show on load only if we are setup mode only...
                 if (this.worldMode == Mode.Operate)
                 {
                     Destroy(go.transform.Find("AppBar").gameObject);
-                    //go.SetActive(false);
                 }
+ 
+            }
+
+            // are we already anchored?
+            if (ids.Contains(anchorGo.name))
+            {
+                WorldAnchor wa = was.Load(anchorGo.name, anchorGo);
             }
 
             // need to reload navlines...
+            curvedLineRender.DoNavigationLine(this, linePoints);
+        }
+
+        public void RedoLine(int arrayPos, Vector3 pos)
+        {
+            if (null != linePoints && linePoints.Length > arrayPos)
+            {
+                linePoints[arrayPos] = pos;
+            }
             curvedLineRender.DoNavigationLine(this, linePoints);
         }
 
@@ -357,19 +379,5 @@ namespace Scripts.AnchorObjects
         }
 
 
-    }
-
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Status
-    {
-        Incomplete = 0,
-        Complete = 1
-    }
-
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Mode
-    {
-        SetUp = 0,
-        Operate = 1
     }
 }
