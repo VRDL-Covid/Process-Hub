@@ -66,3 +66,14 @@ crashlytics-build.properties
 /Assets/MixedRealityToolkit.SDK
 /Assets/MixedRealityToolkit.Services
 /Assets/TextMesh Pro
+/WebRequestHandlerProxy/obj/Debug
+/WebRequestHandlerProxy/bin/Debug
+/UWPDevicePortalApp/Clients/DevicePortalClient/bin/Debug
+/UWPDevicePortalApp/Clients/DevicePortalClient/obj/Debug
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/MockDataGenerator/bin/Debug
+*.exe
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/MockDataGenerator/obj/Debug
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/UnitTestProject/bin/Debug
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/UnitTestProject/obj/Debug
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/WindowsDevicePortalWrapper/bin/Debug
+/UWPDevicePortalApp/WindowsDevicePortalWrapper/WindowsDevicePortalWrapper/obj/Debug

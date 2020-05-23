@@ -45,6 +45,11 @@ namespace WebRequestHandlerProxy
         /// </summary>
         private X509Certificate2 manualCertificate = null;
 
+        public int Test(int val)
+        {
+            int x = val;
+            return x;
+        }
         /// <summary>
         /// Handler for when an unvalidated cert is received.
         /// </summary>
@@ -67,11 +72,11 @@ namespace WebRequestHandlerProxy
             WebRequestHandler handler = new WebRequestHandler();
             handler.UseDefaultCredentials = false;
             handler.Credentials = Credentials;
-            handler.ServerCertificateValidationCallback = this.ServerCertificateValidation;
+            //handler.ServerCertificateValidationCallback = this.ServerCertificateValidation;
 
             using (HttpClient client = new HttpClient(handler))
             {
-                headerHelper.ApplyHttpHeaders(client, HttpMethods.Get);
+                //headerHelper.ApplyHttpHeaders(client, HttpMethods.Get);
 
                 using (HttpResponseMessage response = await client.GetAsync(uri).ConfigureAwait(false))
                 {
