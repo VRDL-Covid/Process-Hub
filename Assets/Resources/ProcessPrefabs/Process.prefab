@@ -625,11 +625,12 @@ MonoBehaviour:
   prefabPath: ProcessPrefabs/Process
   modelPrefabPath: 
   anchorsFileName: 
-  toolTipText: 
+  toolTipText: Burlington Kitchen
   modelOffset: {x: 0.5, y: 0, z: 1}
   lineArrayPosition: -1
   addAnchor: {fileID: 0}
   deleteAnchor: {fileID: 0}
+  modelPrefab: {fileID: 0}
 --- !u!114 &5878742144283171135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   processPath: 
+  prefabData: {fileID: 3024157841000396025}
   instanceID: 0
 --- !u!114 &3387973706098558078
 MonoBehaviour:
@@ -2869,7 +2871,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5878742144283171135}
         m_MethodName: LaunchProcess
         m_Mode: 1
         m_Arguments:
