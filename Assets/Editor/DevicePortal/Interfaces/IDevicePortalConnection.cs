@@ -44,6 +44,11 @@ namespace Scripts.DevicePortal
         DevicePortalWrapper.OperatingSystemInformation OsInfo { get; set; }
 
         /// <summary>
+        /// Gets or sets the list of packages installed on the device.
+        /// </summary>
+        DevicePortalWrapper.AppPackages Packages { get; set; }
+
+        /// <summary>
         /// Updates the http security requirements for device communication.
         /// </summary>
         /// <param name="requiresHttps">True if an https connection is required, false otherwise.</param>

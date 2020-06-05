@@ -117,6 +117,7 @@ namespace Scripts.DevicePortal
             }
         }
 
+
         /// <summary>
         /// Gets the device platform.
         /// </summary>
@@ -209,6 +210,7 @@ namespace Scripts.DevicePortal
                 apiPath,
                 payload);
             WRHP.WebRequest wr = new WRHP.WebRequest();
+            int res = wr.Test(9);
             return ReadJsonStream<T>(await wr.GetAsync(uri, this.deviceConnection.Credentials).ConfigureAwait(false));
         }
 
@@ -263,6 +265,7 @@ namespace Scripts.DevicePortal
                     connectionPhaseDescription);
                 this.deviceConnection.Family = await this.GetDeviceFamilyAsync().ConfigureAwait(false);
                 this.deviceConnection.OsInfo = await this.GetOperatingSystemInformationAsync().ConfigureAwait(false);
+                //this.deviceConnection.Packages = await this.GetInstalledAppPackagesAsync().ConfigureAwait(false);
 
                 // Default to using whatever was specified in the connection.
                 bool requiresHttps = this.IsUsingHttps();
@@ -280,7 +283,7 @@ namespace Scripts.DevicePortal
                 }
 
                 // Connect the device to the specified network.
-                if (!string.IsNullOrWhiteSpace(ssid))
+                /*if (!string.IsNullOrWhiteSpace(ssid))
                 {
                     connectionPhaseDescription = string.Format("Connecting to {0} network", ssid);
                     this.SendConnectionStatus(
@@ -291,7 +294,7 @@ namespace Scripts.DevicePortal
 
                     // TODO - consider what to do if there is more than one wifi interface on a device
                     await this.ConnectToWifiNetworkAsync(wifiInterfaces.Interfaces[0].Guid, ssid, ssidKey).ConfigureAwait(false);
-                }
+                }*/
 
                 this.SendConnectionStatus(
                     DeviceConnectionStatus.Connected,

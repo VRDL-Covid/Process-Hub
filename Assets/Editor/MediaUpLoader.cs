@@ -7,6 +7,7 @@ using WebRequestHandlerProxy;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using Scripts.DevicePortal;
+using System.Linq;
 
 namespace Scripts.ProcessEditor
 {
@@ -16,11 +17,17 @@ namespace Scripts.ProcessEditor
         //string userName = "User Name", passwordToEdit = "<Password>";
         string userName = "holomark", passwordToEdit = "Ptmdxl04~";
 
-        string ipOverUsbAddress = "localhost:10080";
-        string ipOverWiFiAddress = "192.168.0.9";
+        string ipOverUsbAddress = "https://localhost:10080";
+        string ipOverWiFiAddress = "https://192.168.0.9";
         string computername = "not set";
         bool useUSB = false;
+        DevicePortalWrapper.ConnectInfo connInfo;
+        DevicePortalWrapper portal = null;
+        System.Uri targetDevice = null;
 
+        // used to display data from the connected device (e.g. hololens);
+        string portalMessage = "";
+        
         public MediaUpLoader(string pathToResource)
         {
         }
@@ -73,16 +80,18 @@ namespace Scripts.ProcessEditor
                 GUILayout.BeginHorizontal("Wi-Fi");
                 if (GUILayout.Button("Connect Wi-Fi"))
                 {
-                    DeviceInfo devInf = new DeviceInfo(ipOverWiFiAddress, userName, passwordToEdit);
-                    //OsInfoTask = DevicePortal.GetDeviceOsInfoAsync(devInf);
+                    connInfo.IP = ipOverWiFiAddress;
+                    connInfo.User = userName;
+                    connInfo.Password = passwordToEdit;
+                    bool connected = TryOpenDevicePortalConnection(ref targetDevice,  connInfo, out portal);
 
-                    Debug.Log("a " + devInf.Password);
-                    //InstalledApps ias = await DevicePortal.GetAllInstalledAppsAsync(devInf);
+
+                    DevicePortalWrapper.AppPackages ias =  await portal.GetInstalledAppPackagesAsync();
+                    //ias.Packages.OrderBy(pkg => pkg.FamilyName).
                     //MachineName mn = await DevicePortal.GetMachineNameAsync(devInf);
                     //OsInfo = aaait DevicePortal.GetDeviceOsInfoAsync(devInf);
                     //EditorGUILayout.LabelField(OsInfo.ComputerName, Style);
                     //computername = mn.ComputerName;// OsInfo.ComputerName;
-                    Debug.Log("b " + devInf.Password);
                 }
 
                 //EditorGUILayout.LabelField(computername, Style);
@@ -105,12 +114,17 @@ namespace Scripts.ProcessEditor
 
         }
 
-        private static bool TryOpenDevicePortalConnection(out System.Uri targetDevice, DevicePortalWrapper.ConnectInfo connInfo, out DevicePortalWrapper portal)
+        void HandlePortalEvents(object sender, DeviceConnectionStatusEventArgs args)
+        {
+            portalMessage = $"Phase: {args.Phase}, Status: {args.Status}, Message - {args.Message}";
+        }
+
+        private bool TryOpenDevicePortalConnection(ref System.Uri targetDevice, DevicePortalWrapper.ConnectInfo connInfo, out DevicePortalWrapper portal)
         {
             bool success = System.Uri.TryCreate(connInfo.IP, System.UriKind.Absolute, out targetDevice);
 
             portal = new DevicePortalWrapper(new DefaultDevicePortalConnection(targetDevice.ToString(), connInfo.User, connInfo.Password));
-
+            portal.ConnectionStatus += this.HandlePortalEvents;
             try
             {
                 // We need to handle this event otherwise remote connection will be rejected if
@@ -142,6 +156,8 @@ namespace Scripts.ProcessEditor
 
                 success = false;
             }
+
+            portal.ConnectionStatus -= this.HandlePortalEvents;
 
             return success;
         }

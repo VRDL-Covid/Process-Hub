@@ -1,4 +1,5 @@
 ﻿//#if UNITY_EDITOR
+//#define BUILD_TEST
 
 using UnityEngine;
 using UnityEditor;
@@ -12,15 +13,21 @@ using UnityEditorInternal;
 using Newtonsoft.Json;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
+using Scripts.Media;
 
-namespace Scripts.ProcessEditor
+namespace Scripts.Editor
 {
     public class ProcessEditor : EditorWindow
     {
+        public class MediaLoadedData
+        {
+            public bool isLoaded;
+        }
 
         string strRegexSearch = "_holopoint";
         public string anchorFileName = "anchordata";
-
+        public string relativeMediaPath = @"Assets\Editor\Media\";
         int[] strSelectionIDs;
         int selectedHologramIdx, selectedCategoryIdx = 0;
         GameObject selectedParent = null;
@@ -36,19 +43,24 @@ namespace Scripts.ProcessEditor
         string jsonPath = string.Empty;
         const int TOP_PADDING = 2;
         Vector2 textScroll;
+        string localCopyMessage = string.Empty;
+        TaskCompletionSource<bool> isCopiedLocal = new TaskCompletionSource<bool>();
 
         // stores the data of the current anchor..
         Vector3 anchorScale = new Vector3(1, 1, 1);
         string anchorDescription, anchorToolTip = string.Empty;
-
+        string mediaItemDescription = string.Empty, mediaItemName = string.Empty, selectedMedia = string.Empty;
+        float scaleMedia = 1f;
+        bool addingMedia = false;
+        bool isValidMedia = false;
         // holds categories that can be assigned to a hologram....
         Categories categories = new Categories();
 
         // specifies the hologram to be set at an anchor...
-        //
+        //, selectedMedia
         Holograms holograms = new Holograms();
 
-        // stores the list of holograms that is used to generate the JSON...
+        // stores the list of holograms that  = used to generate the JSON...
         AnchoredGameObjects anchors = new AnchoredGameObjects();
         AnchorNames anchorNames = null;
 
@@ -90,9 +102,12 @@ namespace Scripts.ProcessEditor
             cbHologramSelect = new DelMenuItem(DoHoloGrams);
             cbCategorySelect = new DelMenuItem(DoCategorySelect);
 
-            //Assign the list delegates...
+            //Assign the anchors list delegates...
             cbAnchorsOnChange = OnListOrderChanged;
             cbAnchorsOnSelect = OnListItemSelect;
+
+            // assign the media list delegates...
+            cbMediaOnSelect = OnMediaListItemSelect;
 
             // load in the process...
             string jsonFilePath = string.Format("Json/{0}", ReadMetaData.fileName);
@@ -146,14 +161,11 @@ namespace Scripts.ProcessEditor
             // Update the list containing the generated items...
             UpdateAnchorList();
 
+
+
             // Handle serialisation back to json...
             // if the user hasn't selected a json file then search the persistent data store and find a new file name...
             // This step takes the added objects and gets the order from the list
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("UploadMedia to HoloLens...", EditorStyles.boldLabel);
-            CheckFinalise();
-            GUILayout.EndHorizontal();
-
             GUILayout.BeginHorizontal();
             GUILayout.Label("Serialise Holograms and reset scene...", EditorStyles.boldLabel);
             CheckFinalise();
@@ -181,6 +193,18 @@ namespace Scripts.ProcessEditor
                     rect.y += TOP_PADDING;
                     rect.height = EditorGUIUtility.singleLineHeight;
                     EditorGUI.PropertyField(rect, anchorsReorderableList.serializedProperty.GetArrayElementAtIndex(index));
+                };
+
+                
+                // media...
+                mediaReorderableList = new ReorderableList(anchorsSerObj, anchorsSerObj.FindProperty("MediaNames"), true, true, false, false);
+                mediaReorderableList.drawHeaderCallback = (rect) => EditorGUI.LabelField(rect, "Media for step");
+                mediaReorderableList.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
+                {
+                    Debug.Log(index);
+                    rect.y += TOP_PADDING;
+                    rect.height = EditorGUIUtility.singleLineHeight;
+                    EditorGUI.PropertyField(rect, mediaReorderableList.serializedProperty.GetArrayElementAtIndex(index));
                 };
             }
         }
@@ -216,7 +240,16 @@ namespace Scripts.ProcessEditor
                 Selection.activeGameObject = selObj;
                 CheckObjectAndFocus();
                 enableUpdate = true;
+                // get media for this step...
+                GetMediaForStep(ago);
             }
+        }
+
+        private void GetMediaForStep(AnchoredGameObject ago)
+        {
+            // TODO
+            Debug.Log("media for step");
+            anchorNames.MediaNames = new string[] { "test 1", "test 2" };
         }
 
         /// <summary>
@@ -249,6 +282,14 @@ namespace Scripts.ProcessEditor
                 clr.DoNavigationLine(this, linePoints);
             }
         }
+        /// <summary>
+        ///  called to set the focus to the item in the list...
+        /// </summary>
+        /// <param name="list">Contains anchors in the order</param>
+        private void OnMediaListItemSelect(ReorderableList list)
+        {
+
+        }
 
         private void LoadAnchors()
         {
@@ -276,53 +317,164 @@ namespace Scripts.ProcessEditor
             OnListOrderChanged(anchorsReorderableList);
         }
 
-        void DoObjectProperties()
+        void DoMediaObjectProperties()
         {
-            // check that the selected object is parented to a valid gameobject also that it is a valid "RunTime" object...
+            GUILayout.BeginVertical("Media", "window");
+            EditorGUIUtility.labelWidth = 200;
+            GUILayout.BeginHorizontal();
+            mediaItemName = EditorGUILayout.TextField("Media Name: ", mediaItemName, GUILayout.ExpandHeight(false));
+            GUILayout.EndHorizontal();
+
+            // set up the Description to be displayed to the end user...
+            GUILayout.Label("Media Description", EditorStyles.boldLabel);
+            GUILayout.BeginHorizontal();
+            textScroll = EditorGUILayout.BeginScrollView(textScroll, GUILayout.Height(50));
+            mediaItemDescription = EditorGUILayout.TextArea(mediaItemDescription, GUILayout.ExpandHeight(true));
+            EditorGUILayout.EndScrollView();
+            GUILayout.EndHorizontal();
+
             if (CheckValidRuntimeObjectSelected())
             {
-                strSelectedObjectName = Selection.activeGameObject.name;
-                AnchoredGameObject ago = anchors.anchorObjects.SingleOrDefault(anch => anch.Name == Selection.activeGameObject.name);
-                // setup the scaling sliders...
-                anchorScale = Selection.activeGameObject.transform.localScale;
-                GUILayout.Label("Scale axes", EditorStyles.boldLabel);
+                #region MediaSelect
                 GUILayout.BeginHorizontal();
-                GUILayout.Label(" x axis", EditorStyles.boldLabel);
-                anchorScale.x = EditorGUILayout.Slider(anchorScale.x, -10, 10);
+                if (GUILayout.Button("Select & Add", GUILayout.Width(100)))
+                {
+                    addingMedia = true;
+                    isValidMedia = !mediaItemName.Equals(string.Empty);
+                    if (!isValidMedia)
+                        EditorUtility.DisplayDialog("Notice", "A name is required for the media item", "Ok");
+                    if (isValidMedia)
+                    {
+                        string localCache = $@"{Application.dataPath}\..\{relativeMediaPath}";
+                        localCache = System.IO.Path.GetFullPath(localCache);
+                        if (!Directory.Exists(localCache))
+                            Directory.CreateDirectory(localCache);
+                        // show file open dialog to select media...
+                        string mediaPath = EditorUtility.OpenFilePanel("Select Media to show at step", localCache, "blend,fbx,xml,mp4,mov");
+
+                        if (!mediaPath.Equals(string.Empty))
+                        {
+                            mediaPath = System.IO.Path.GetFullPath(mediaPath);
+                            selectedMedia = System.IO.Path.GetFileName(mediaPath);
+
+                            // check if file exists in media path if not local...
+                            if (!mediaPath.Contains(localCache))
+                            {
+                                EditorUtility.DisplayDialog("Notice",
+                                    $@"Assets must already exist in the Asset Database.{System.Environment.NewLine}Copying {selectedMedia.ToUpper()} to: {System.Environment.NewLine}{localCache.ToUpper()}{System.Environment.NewLine} This asset will be available after import",
+                                    "Cancel");
+                                // copy local...
+                                string localName = Path.Combine(localCache, selectedMedia);
+                                System.IO.File.Copy(mediaPath, Path.Combine(localCache, localName), true);
+                                AssetProcessor.AddAsset(localName, ref localCopyMessage);
+                                isValidMedia = false;
+                            }
+                            else
+                                isValidMedia = true;
+                        }
+                    }  
+                }
+
                 GUILayout.EndHorizontal();
+                #endregion
+
+                #region MediaAdd
                 GUILayout.BeginHorizontal();
-                GUILayout.Label("y axis", EditorStyles.boldLabel);
-                anchorScale.y = EditorGUILayout.Slider(anchorScale.y, -10, 10);
-                GUILayout.EndHorizontal();
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("z axis", EditorStyles.boldLabel);
-                anchorScale.z = EditorGUILayout.Slider(anchorScale.z, -10, 10);
-                Selection.activeGameObject.transform.localScale = anchorScale;
+                GUILayout.Label(" Scale", EditorStyles.boldLabel);
+                scaleMedia = EditorGUILayout.Slider(scaleMedia, 0, 5);
                 GUILayout.EndHorizontal();
 
-                // set up the Tooltip to be displayed to the end user...
-                EditorGUILayout.Space();
                 GUILayout.BeginHorizontal();
-                anchorToolTip = EditorGUILayout.TextField("ToolTip: ", anchorToolTip, GUILayout.ExpandHeight(false));
+                if (null != Selection.activeGameObject)
+                {
+                    // this time we want the parent of the anchor...
+                    AnchoredGameObject parentAgo = anchors.anchorObjects.SingleOrDefault(anch => anch.ParentName == Selection.activeGameObject.name);
+                    if (addingMedia && isValidMedia && null != parentAgo)
+                    {
+                        try
+                        {
+                            // instantiate the prefab container for the media type and scale...
+                            MediaObject mo = new MediaObject();
+                            string ext = System.IO.Path.GetExtension(selectedMedia);
+                            mo.SetMediaSettingsForExtension(ext);
+                            // check is not invalid and we have a valid parent...
+                            if (mo.mediaSettings.Mediatype != enmMediaType.INVALID)
+                            {
+                                //parentAgo.mediaObjects.Add(mo);
+                                Debug.Log($"selected index {anchorsReorderableList.index}");
+                                //instantiate the prefab...
+                                GameObject mediaContainer = (GameObject)Instantiate(Resources.Load(mo.mediaSettings.PrefabPath), Selection.activeGameObject.transform);
+                                MediaLauncher ml = mediaContainer.GetComponentInChildren<MediaLauncher>();
+                                if (ml != null)
+                                {
+                                    GameObject container = ml.gameObject;
+                                    GameObject mediaObject = (GameObject)Instantiate(Resources.Load($"{relativeMediaPath}/{selectedMedia}"), container.transform);
+                                }
+                            }
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogError(e.Message);
+                            isValidMedia = false;
+                            addingMedia = false;
+                        }
+                    }
+                }
                 GUILayout.EndHorizontal();
-
-                // set up the Description to be displayed to the end user...
-                GUILayout.Label("Description", EditorStyles.boldLabel);
-                GUILayout.BeginHorizontal();
-                textScroll = EditorGUILayout.BeginScrollView(textScroll, GUILayout.Height(50));
-                anchorDescription = EditorGUILayout.TextArea(anchorDescription, GUILayout.ExpandHeight(true));
-                EditorGUILayout.EndScrollView();
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("Update the selected hologram", EditorStyles.boldLabel);
-                UpdateHologram();
-                GUILayout.EndHorizontal();
+                #endregion
             }
-            else
-                strSelectedObjectName = conSelValidObject;
-
+            mediaReorderableList.DoLayoutList();
+            GUILayout.EndVertical();
         }
+
+
+        void DoObjectProperties()
+    {
+        // check that the selected object is parented to a valid gameobject also that it is a valid "RunTime" object...
+        if (CheckValidRuntimeObjectSelected())
+        {
+            strSelectedObjectName = Selection.activeGameObject.name;
+            AnchoredGameObject ago = anchors.anchorObjects.SingleOrDefault(anch => anch.Name == Selection.activeGameObject.name);
+            // setup the scaling sliders...
+            anchorScale = Selection.activeGameObject.transform.localScale;
+            GUILayout.Label("Scale axes", EditorStyles.boldLabel);
+            GUILayout.BeginHorizontal();
+            GUILayout.Label(" x axis", EditorStyles.boldLabel);
+            anchorScale.x = EditorGUILayout.Slider(anchorScale.x, -10, 10);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("y axis", EditorStyles.boldLabel);
+            anchorScale.y = EditorGUILayout.Slider(anchorScale.y, -10, 10);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("z axis", EditorStyles.boldLabel);
+            anchorScale.z = EditorGUILayout.Slider(anchorScale.z, -10, 10);
+            Selection.activeGameObject.transform.localScale = anchorScale;
+            GUILayout.EndHorizontal();
+
+            // set up the Tooltip to be displayed to the end user...
+            EditorGUILayout.Space();
+            GUILayout.BeginHorizontal();
+            anchorToolTip = EditorGUILayout.TextField("ToolTip: ", anchorToolTip, GUILayout.ExpandHeight(false));
+            GUILayout.EndHorizontal();
+
+            // set up the Description to be displayed to the end user...
+            GUILayout.Label("Description", EditorStyles.boldLabel);
+            GUILayout.BeginHorizontal();
+            textScroll = EditorGUILayout.BeginScrollView(textScroll, GUILayout.Height(50));
+            anchorDescription = EditorGUILayout.TextArea(anchorDescription, GUILayout.ExpandHeight(true));
+            EditorGUILayout.EndScrollView();
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Update the selected hologram", EditorStyles.boldLabel);
+            UpdateHologram();
+            GUILayout.EndHorizontal();
+        }
+        else
+            strSelectedObjectName = conSelValidObject;
+
+    }
 
         void DrawAndHandleMenu(string title, string[] options, DelMenuItem DoSelectCallback, ref int idx)
         {
@@ -385,6 +537,9 @@ namespace Scripts.ProcessEditor
         {
             anchorsSerObj.Update();
             anchorsReorderableList.DoLayoutList();
+
+            // display the media assets and controls...
+            DoMediaObjectProperties();
             anchorsSerObj.ApplyModifiedProperties();
         }
 

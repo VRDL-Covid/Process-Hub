@@ -39,7 +39,8 @@ namespace Scripts.DevicePortal
                 !string.IsNullOrEmpty(password))
             {
                 // append auto- to the credentials to bypass CSRF token requirement on non-Get requests.
-                this.Credentials = new NetworkCredential(string.Format("auto-{0}", userName), password);
+                //this.Credentials = new NetworkCredential(string.Format("auto-{0}", userName), password);
+                this.Credentials = new NetworkCredential(string.Format("{0}", userName), password);
             }
         }
 
@@ -119,6 +120,12 @@ namespace Scripts.DevicePortal
         /// Gets or sets the operating system information.
         /// </summary>
         public DevicePortalWrapper.OperatingSystemInformation OsInfo
+        {
+            get;
+            set;
+        }
+
+        public DevicePortalWrapper.AppPackages Packages
         {
             get;
             set;
