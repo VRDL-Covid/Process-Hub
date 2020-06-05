@@ -622,6 +622,7 @@ MonoBehaviour:
   - Sphere__holopoint.004
   - Sphere__holopoint.005
   - Sphere__holopoint.000
+  MediaNames: []
 --- !u!23 &1399180254
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -770,12 +771,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8dee08d1b9aeb42b8812bac6ead544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceID: 0
-  __IS_DEBUG__: 0
   curvedLineRender: {fileID: 989206737}
   anchorsFileName: 
   ModelsFileName: 
   worldMode: 0
+  instanceID: 0
+  linePoints: []
 --- !u!4 &11190769955023000
 Transform:
   m_ObjectHideFlags: 0
@@ -843,7 +844,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1914514001}
         m_MethodName: SaveData
         m_Mode: 1
         m_Arguments:

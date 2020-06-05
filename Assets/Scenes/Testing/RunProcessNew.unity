@@ -1003,7 +1003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &573107504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,6 +1068,7 @@ MonoBehaviour:
   - Sphere__holopoint.003
   - Cube__holopoint.002
   - Sphere__holopoint.001
+  MediaNames: []
 --- !u!23 &648217363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1954,7 +1955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1021174294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,7 +2747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1395862314
 Transform:
   m_ObjectHideFlags: 0
@@ -3045,7 +3046,7 @@ Transform:
   m_LocalScale: {x: 5.282873, y: 2.971616, z: 1.3331331}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1512344949
 MonoBehaviour:
@@ -3167,7 +3168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1870837911
 GameObject:
