@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Scripts.Json;
+using Scripts.Media;
 
 //#if WINDOWS_UWP
-    using MST = Microsoft.MixedReality.Toolkit.UI;
+using MST = Microsoft.MixedReality.Toolkit.UI;
     using Microsoft.MixedReality.Toolkit.Utilities;
 //#endif
 
@@ -31,8 +32,19 @@ namespace Scripts.AnchorObjects
         public string ToolTipText { get; set; }
         public Vector3 Scale { get; set; }
 
+        public bool IsAnchor
+        {
+            get
+            {
+                if (null == Category)
+                    return false;
+                return Category.ToLower().Equals("anchor");
+            }
+            }
+
         public List<AnchoredGameObject> Children = new List<AnchoredGameObject>();
-        public List<string> MediaURLs = new List<string>();
+        //public List<string> MediaURLs = new List<string>();
+        public List<MediaObject> mediaObjects = new List<MediaObject>();
 
         public AnchoredGameObject() { }
 
@@ -61,6 +73,39 @@ namespace Scripts.AnchorObjects
 //#endif
         }
 
+        public bool GetTransformDataFromGameObject()
+        {
+            GameObject go = GameObject.Find(this.Name);
+            return GetTransformDataFromGameObject(go);
+        }
+
+        public bool GetTransformDataFromGameObject(GameObject go)
+        {
+            if (null == go)
+                return false;
+            Transform t = go.transform;
+            this.RotateW = t.rotation.w;
+            this.RotateX = t.rotation.x;
+            this.RotateY = t.rotation.y;
+            this.RotateZ = t.rotation.z;
+            this.Scale = t.localScale;
+            this.Scale = t.localScale;
+            this.Position = t.position;
+            return true;
+        }
+
+        public bool SetRotationAndScaleFromGameObject(GameObject go)
+        {
+            if (null == go)
+                return false;
+            Transform t = go.transform;
+            this.RotateW = t.rotation.w;
+            this.RotateX = t.rotation.x;
+            this.RotateY = t.rotation.y;
+            this.RotateZ = t.rotation.z;
+            this.Scale = t.localScale;
+            return true;
+        }
         public void StoreGameObjectParameters()
         {
 
@@ -81,6 +126,28 @@ namespace Scripts.AnchorObjects
             }
         }
 
+        /// <summary>
+        /// Gets the scale for each object and applies it to the anchor object ready to serialise to json
+        /// </summary>
+        public void GetScale()
+        {
+            // set the scale etc of this object...
+            GetTransformDataFromGameObject();
+
+            /*
+            foreach (AnchoredGameObject oChild in this.Children)
+            {
+                GameObject go = GameObject.Find(oChild.Name);
+                foreach (Transform t in go.transform)
+                {
+                    if (t.transform.gameObject.name == oChild.Name)
+                    {
+                        oChild.Scale = t.transform.gameObject.transform.localScale;
+                        break;
+                    }
+                }
+            }*/
+        }
 
         public void SetToolTip(GameObject go)
         {

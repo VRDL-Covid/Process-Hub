@@ -28,7 +28,7 @@ public class PrefabData : MonoBehaviour
 
     public GameObject addAnchor, deleteAnchor;
 
-    GameObject modelPrefab;
+    public GameObject modelPrefab;
 
     public void OnShowTrainingModel()
     {
@@ -36,13 +36,19 @@ public class PrefabData : MonoBehaviour
         {
             if (null == modelPrefab)
             {
-                modelPrefab = Resources.Load(modelPrefabPath, typeof(GameObject)) as GameObject;
+                GameObject model =  Resources.Load(modelPrefabPath, typeof(GameObject)) as GameObject;
+                if (null == model)
+                    return;
                 var worldPos = Camera.main.transform.TransformPoint(modelOffset);
-                GameObject model = GameObject.Instantiate(modelPrefab);
+                modelPrefab = GameObject.Instantiate(model);
                 model.transform.position = worldPos;
-                LoadExistingAnchors(model.transform);
+                //LoadExistingAnchors(model.transform);
 
-                ToolTip ttip = model.GetComponentInChildren<ToolTip>();
+                // get child tooltip and set if exists...
+                GameObject tt = model.transform.Find("ToolTip").gameObject;
+                if (null == tt)
+                    return;
+                ToolTip ttip = tt.GetComponent<ToolTip>();
                 if (ttip != null)
                     ttip.ToolTipText = toolTipText;
             }

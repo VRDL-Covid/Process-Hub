@@ -10,18 +10,17 @@ namespace Scripts.AnchorObjects
     {
         [JsonIgnore]
         public AnchorNames anchorNames { get; set; }
-        //public AnchorObjectCommons anchorCommons = new AnchorObjectCommons();
-
-        private string description = string.Empty;
 
         public string Name { get; set; }
 
-
         public string Description { get; set; }
-
 
         public List<AnchoredGameObject> anchorObjects = new List<AnchoredGameObject>();
 
+        public bool isRecording = false;
+
+        private string description = string.Empty;
+    
         [JsonIgnore]
         public AnchorNames AnchorNames
         {

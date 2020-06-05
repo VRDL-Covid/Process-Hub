@@ -42,6 +42,9 @@ public class GlobalState : MonoBehaviour
     [HideInInspector]
     public GameObject spinnerInstance;
 
+    // Used to record progress
+    public AnchoredGameObjects RecordProcess { get; set;}
+
     private StepIndicator stepIndicator = null;
 
     /// <summary>
@@ -53,17 +56,20 @@ public class GlobalState : MonoBehaviour
             wam = GameObject.Find("WAM").GetComponent<WorldAnchorManagerBlender>();
 #if WINDOWS_UWP
          stepIndicator = CameraCache.Main.transform.GetComponentInChildren<StepIndicator>();
-#else
-        Camera camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
-        stepIndicator = camera.transform.GetComponentInChildren<StepIndicator>();
-#endif
 
+#elif UNITY_EDITOR
+        GameObject camera = GameObject.Find("Main Camera");
+        //Camera camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
+        stepIndicator = camera.transform.GetComponentInChildren<StepIndicator>();
+        //GameObject.Find("StepLocator").GetComponent<StepIndicator>();
+#endif
+        this.stepLocator = stepIndicator.gameObject;
         wam.anchorsFileName = PlayerPrefs.GetString("jsonfilename");
         wam.instanceID = PlayerPrefs.GetInt("instanceid");
-#if WINDOWS_UWP
-        wam.InitiateAnchorLoad();
-        wam.LoadExistingAnchors();
-#endif
+//#if WINDOWS_UWP
+//        wam.InitiateAnchorLoad();
+//        wam.LoadExistingAnchors();
+//#endif
         // sort the list in the designated order to review in the world...
         orderedList = wam.gameObjectsToSerialize.Values.ToList<AnchoredGameObject>();
         
@@ -74,6 +80,10 @@ public class GlobalState : MonoBehaviour
         // this is used to allow us to simply index into the list of objects
         // using a simple incremented value stored in stepIndex (see below for implementation in Linq)...
         orderToInspect = orderedList.Select(x => x.RunOrder).ToArray();
+
+        // create object store to record progres...
+        RecordProcess = new AnchoredGameObjects();
+        RecordProcess.isRecording = true;
     }
 
     /// <summary>

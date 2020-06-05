@@ -17,8 +17,6 @@ namespace Scripts.AnchorObjects
 {
     public class WorldAnchorManagerBlender : ManagerBase
     {
-        public Dictionary<string, GameObject> gos = new Dictionary<string, GameObject>();
-
         public Vector3[] linePoints = null;
 
         WorldAnchorStore was;
@@ -38,6 +36,10 @@ namespace Scripts.AnchorObjects
             // clear line data
             curvedLineRender.DoNavigationLine(this, new Vector3[0]);
             this.was = was;
+            //if (this.worldMode == Mode.Operate)
+            //{
+                this.anchorsFileName = PlayerPrefs.GetString("jsonfilename");
+            //}
             LoadExistingAnchors();
         }
 
@@ -210,7 +212,7 @@ namespace Scripts.AnchorObjects
             if (null == agoParent)
                 return;
             //ensure ordered by run order...
-            agos.anchorObjects = agos.anchorObjects.OrderBy(ago => ago.RunOrder).ToList(); ;
+            agos.anchorObjects = agos.anchorObjects.OrderBy(ago => ago.RunOrder).ToList();
 
             int id = 0;
             // set up line points vector...
@@ -223,7 +225,8 @@ namespace Scripts.AnchorObjects
             anchorGo.transform.position = agoParent.Position;
             anchorGo.name = "waypoint_anchor";
 
-            gameObjectsToSerialize.Add(anchorGo.name, agoParent);
+            if (this.worldMode != Mode.Operate)
+                gameObjectsToSerialize.Add(anchorGo.name, agoParent);
 
             foreach (AnchoredGameObject ago in agos.anchorObjects)
             {
@@ -231,7 +234,7 @@ namespace Scripts.AnchorObjects
                 // set pos, rot and scale...
                 GameObject prefab = Resources.Load(ago.PrefabSource, typeof(GameObject)) as GameObject;
                 GameObject go = GameObject.Instantiate(prefab);
-                go.name = "waypoint_" + id++;
+                go.name = ago.Name;// "waypoint_" + id++;
 
                 go.transform.position = ago.Position;
                 go.transform.SetParent(anchorGo.transform);
@@ -265,8 +268,9 @@ namespace Scripts.AnchorObjects
                 if (this.worldMode == Mode.Operate)
                 {
                     Destroy(go.transform.Find("AppBar").gameObject);
+                    go.SetActive(false);
                 }
- 
+
             }
 
             // are we already anchored?
@@ -295,9 +299,9 @@ namespace Scripts.AnchorObjects
 
 #if WINDOWS_UWP
         StepIndicator stepIndicator = CameraCache.Main.transform.GetComponentInChildren<StepIndicator>();
-#else
+#elif UNITY_EDITOR
             Camera camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
-            StepIndicator stepIndicator = camera.transform.GetComponentInChildren<StepIndicator>();
+            StepIndicator stepIndicator = GameObject.Find("StepLocator").GetComponent<StepIndicator>();
 #endif
             stepIndicator.target = target;
             return target;
@@ -327,7 +331,7 @@ namespace Scripts.AnchorObjects
 
         public void SaveData()
         {
-#if WINDOWS_UWP
+//#if WINDOWS_UWP
 
             // determine if this is being called from the hub...
             GameObject goIdx = GameObject.Find("IndexManager");
@@ -349,8 +353,14 @@ namespace Scripts.AnchorObjects
             AnchoredGameObjects agoParent = new AnchoredGameObjects();
 
             foreach (AnchoredGameObject ago in agos)
-                agoParent.anchorObjects.Add(ago);
-
+            {
+                // get the objects scale..
+                // only scale if not an anchor...
+                if (!ago.IsAnchor)
+                    ago.GetTransformDataFromGameObject();
+                 agoParent.anchorObjects.Add(ago);
+            }
+                    
             string path = string.Format("{0}/{1}.json", Application.persistentDataPath, this.anchorsFileName);
 
             string json = JsonConvert.SerializeObject(agoParent, Formatting.Indented);
@@ -358,7 +368,7 @@ namespace Scripts.AnchorObjects
 
             UnityEngine.Windows.File.WriteAllBytes(path, data);
 
-#endif
+//#endif
         }
 
         public void SaveModelData()

@@ -10,6 +10,7 @@ namespace Scripts.AnchorObjects
     public class AnchorNames : MonoBehaviour
     {
         public string[] Names;
+        public string[] MediaNames;
     }
 }
             

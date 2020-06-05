@@ -41,13 +41,12 @@ public class InitialiseProcessStep : ProcessBase
                 // set the panel to the offset from the camera...
 #if WINDOWS_UWP
                 gs.MainPanel.transform.position = CameraCache.Main.transform.position + gs.panelData.PanelOffsetTarget;
-#else
+#elif UNITY_EDITOR
                 // get the camera position...
                 Camera camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
                 gs.MainPanel.transform.position = camera.transform.position + gs.panelData.PanelOffsetTarget;
 #endif
-                //gs.MainPanel.transform.position = gs.target.transform.position + gs.panelData.PanelOffsetTarget;
-                //gs.MainPanel.transform.LookAt(CameraCache.Main.transform.position);
+
 
                 // move state machine to state for proximity detection...
                 animator.SetBool("moveToNextProcessStep", true);

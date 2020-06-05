@@ -20,7 +20,7 @@ public class ConductStep : ProcessBase
 #if WINDOWS_UWP
         gs.panelData.orbital.enabled = true;
 #endif  
-        gs.panelData.Title.text = gs.dataForStep.Name;
+        gs.panelData.Title.text = gs.dataForStep.ToolTipText;
         gs.panelData.Description.text = gs.dataForStep.Description;
         gs.panelData.Status.text = gs.dataForStep.StepStatus.ToString();
     }

@@ -33,8 +33,10 @@ public class CheckProximity : ProcessBase
     {
 #if WINDOWS_UWP
         var heading = CameraCache.Main.transform.position - gs.target.transform.position;
-#else
-        var heading = GameObject.Find("Camera").transform.position - gs.target.transform.position;
+#elif UNITY_EDITOR
+        GameObject camera = GameObject.Find("Main Camera");
+        var heading = camera.transform.position - gs.target.transform.position;
+        Debug.Log(camera.transform.position);
 #endif
         var distance = heading.magnitude;
         // are we within limits of target?
@@ -46,22 +48,4 @@ public class CheckProximity : ProcessBase
         }
 
     }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }
